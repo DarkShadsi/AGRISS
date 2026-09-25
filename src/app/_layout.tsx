@@ -1,18 +1,33 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+import { useEffect } from 'react';
+import { Text } from 'react-native';
+import { Stack } from 'expo-router';
+import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
+import { db } from '../db/client';
+import migrations from '../../drizzle/migrations';
+import { seedDatabase } from '../services/seedService';
+import seedData from '../assets/data/ph_crops_seed_data.json';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+export default function RootLayout() {
+    const { success, error } = useMigrations(db, migrations);
 
-SplashScreen.preventAutoHideAsync();
+    useEffect(() => {
+        if (!success) return; // don't seed until tables actually exist
+        seedDatabase(seedData.crops).catch((e) =>
+            console.error('Failed to initialize database:', e)
+        );
+    }, [success]);
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
-  );
+    if (error) {
+        return <Text>Migration error: {error.message}</Text>;
+    }
+
+    if (!success) {
+        return <Text>Setting up database...</Text>;
+    }
+
+    return (
+        <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+    );
 }
