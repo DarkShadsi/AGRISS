@@ -1,0 +1,1815 @@
+{
+  "_meta": {
+    "title": "Philippine Crops Seed Data",
+    "description": "Reference dataset of common crops grown in the Philippines, intended for seeding a crop database / autocomplete feature. Values are practical estimates compiled from Philippine agricultural extension references (DA-ATI, Bureau of Plant Industry, PCAARRD) and general agronomic sources.",
+    "disclaimer": "Days to harvest, fertilization rates, and yield per plant vary significantly by variety/cultivar, soil type, climate, season, spacing, and management practices. These figures are general planning estimates, NOT precise agronomic recommendations. For commercial or precision farming, verify with a local agriculturist, soil analysis, or the Department of Agriculture / LGU agriculture office.",
+    "units": {
+      "days_to_harvest": "days after seeding or transplanting, as specified per crop",
+      "yield_per_plant": "kilograms (kg) unless otherwise noted"
+    },
+    "last_compiled": "2026-09-25",
+    "fertilization_schedule_notes": "Each fertilization stage now includes a 'schedule' object with numeric day offsets (day_offset_min/max, default_day_offset) counted from the crop's planting_reference (seeding or transplanting, matching days_to_harvest.basis), plus 'recurring', 'interval_days_min/max', 'default_interval_days', and 'repeat_until_harvest' for stages that repeat through the fruiting/harvest period. 'estimated: true' flags stages where the source only gave a growth-stage trigger (e.g. 'at flowering') with no explicit day count, so the offset was inferred from typical crop timing rather than taken directly from a source. These numeric fields are what the app should read for automated task scheduling; the original 'timing' text is kept for display/human reference."
+  },
+  "crops": [
+    {
+      "id": "cucumber",
+      "common_name": "Cucumber",
+      "filipino_name": "Pipino",
+      "scientific_name": "Cucumis sativus",
+      "category": "vine vegetable",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 50,
+        "max": 65,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 2.0,
+        "max": 5.0,
+        "unit": "kg",
+        "notes": "multiple fruits per plant over the harvest period"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting/transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "Incorporate into planting hole or furrow.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Vegetative side-dress",
+          "timing": "2-3 weeks after emergence",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "Light nitrogen boost for vine growth.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 14,
+            "day_offset_max": 21,
+            "default_day_offset": 18,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Flowering/fruiting",
+          "timing": "At first flowering, repeat every 2 weeks",
+          "fertilizer": "Complete or potassium-rich fertilizer (e.g., 14-14-14 or muriate of potash)",
+          "notes": "Supports fruit set and continuous production.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 30,
+            "day_offset_max": 35,
+            "default_day_offset": 32,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 14,
+            "interval_days_max": 14,
+            "default_interval_days": 14
+          }
+        }
+      ]
+    },
+    {
+      "id": "eggplant",
+      "common_name": "Eggplant",
+      "filipino_name": "Talong",
+      "scientific_name": "Solanum melongena",
+      "category": "fruit vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 80,
+        "max": 100,
+        "basis": "from transplanting (100-120 from seeding)"
+      },
+      "yield_per_plant": {
+        "min": 1.5,
+        "max": 3.0,
+        "unit": "kg",
+        "notes": "harvested continuously over 3-5 months"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "Apply in planting hole with organic matter.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "30 days after transplanting (DAT)",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "Promotes vegetative growth before flowering.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 30,
+            "day_offset_max": 30,
+            "default_day_offset": 30,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2 onward",
+          "timing": "Every 3-4 weeks during fruiting",
+          "fertilizer": "Complete fertilizer or foliar fertilizer",
+          "notes": "Sustains continuous fruit production.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 51,
+            "day_offset_max": 58,
+            "default_day_offset": 54,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 21,
+            "interval_days_max": 28,
+            "default_interval_days": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "stringbean",
+      "common_name": "String bean / Yardlong bean",
+      "filipino_name": "Sitaw",
+      "scientific_name": "Vigna unguiculata subsp. sesquipedalis",
+      "category": "legume vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 55,
+        "max": 70,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 0.3,
+        "max": 0.5,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), low rate",
+          "notes": "As a legume, sitaw fixes some of its own nitrogen; avoid excess N.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "At flowering (around 30-35 days)",
+          "fertilizer": "Phosphorus/potassium-rich fertilizer (e.g., 0-20-20)",
+          "notes": "Supports pod development rather than leafy growth.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 30,
+            "day_offset_max": 35,
+            "default_day_offset": 32,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "siling_labuyo",
+      "common_name": "Bird's eye chili",
+      "filipino_name": "Labuyo / Siling Labuyo",
+      "scientific_name": "Capsicum frutescens",
+      "category": "fruit vegetable (spice)",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from transplanting"
+      },
+      "yield_per_plant": {
+        "min": 0.2,
+        "max": 0.5,
+        "unit": "kg",
+        "notes": "small fruits, harvested continuously for many months"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "Every 3-4 weeks",
+          "fertilizer": "Urea or complete fertilizer, alternating with potassium source",
+          "notes": "Consistent light feeding; labuyo is a long-lived perennial shrub in the tropics.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 21,
+            "day_offset_max": 28,
+            "default_day_offset": 24,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 21,
+            "interval_days_max": 28,
+            "default_interval_days": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "baguio_beans",
+      "common_name": "Baguio beans / Snap beans",
+      "filipino_name": "Baguio Beans",
+      "scientific_name": "Phaseolus vulgaris",
+      "category": "legume vegetable",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 60,
+        "max": 70,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 0.2,
+        "max": 0.4,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), low-moderate N",
+          "notes": "Legume; avoid heavy nitrogen.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "At flowering/pod set",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "Improves pod quality and fill.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 35,
+            "day_offset_max": 40,
+            "default_day_offset": 38,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": true,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "pechay",
+      "common_name": "Pechay / Bok choy",
+      "filipino_name": "Pechay",
+      "scientific_name": "Brassica rapa subsp. chinensis",
+      "category": "leafy vegetable",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 30,
+        "max": 45,
+        "basis": "from direct seeding or transplanting"
+      },
+      "yield_per_plant": {
+        "min": 0.1,
+        "max": 0.25,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting/transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "2 weeks after emergence/transplanting",
+          "fertilizer": "Urea (46-0-0), light application",
+          "notes": "Boosts leafy growth; harvest soon after, so avoid excess.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 14,
+            "day_offset_max": 14,
+            "default_day_offset": 14,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "corn",
+      "common_name": "Corn / Maize",
+      "filipino_name": "Mais",
+      "scientific_name": "Zea mays",
+      "category": "cereal",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 65,
+        "max": 100,
+        "basis": "from planting; sweet corn ~65-75 days, field/grain corn ~90-120 days"
+      },
+      "yield_per_plant": {
+        "min": 0.2,
+        "max": 0.5,
+        "unit": "kg",
+        "notes": "typically 1-2 ears per plant; figure is edible ear weight"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "Band-apply near seed furrow.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "21-30 days after planting (knee-high stage)",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "Critical nitrogen stage.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 21,
+            "day_offset_max": 30,
+            "default_day_offset": 26,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2",
+          "timing": "45-50 days after planting (pre-tasseling)",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "Supports ear development.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 45,
+            "day_offset_max": 50,
+            "default_day_offset": 48,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "tomato",
+      "common_name": "Tomato",
+      "filipino_name": "Kamatis",
+      "scientific_name": "Solanum lycopersicum",
+      "category": "fruit vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 60,
+        "max": 85,
+        "basis": "from transplanting"
+      },
+      "yield_per_plant": {
+        "min": 1.5,
+        "max": 3.0,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "2-3 weeks after transplanting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "Vegetative growth.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 14,
+            "day_offset_max": 21,
+            "default_day_offset": 18,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2 onward",
+          "timing": "At flowering and every 2-3 weeks during fruiting",
+          "fertilizer": "Potassium-rich or complete fertilizer",
+          "notes": "Reduce nitrogen relative to potassium once fruiting starts to avoid excessive foliage.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 25,
+            "day_offset_max": 28,
+            "default_day_offset": 26,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 14,
+            "interval_days_max": 21,
+            "default_interval_days": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "okra",
+      "common_name": "Okra",
+      "filipino_name": "Okra",
+      "scientific_name": "Abelmoschus esculentus",
+      "category": "fruit vegetable",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 50,
+        "max": 65,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 0.3,
+        "max": 0.8,
+        "unit": "kg",
+        "notes": "picked every 2-3 days over a long harvest period"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "3-4 weeks after planting, repeat every 2-3 weeks during harvest",
+          "fertilizer": "Urea or complete fertilizer",
+          "notes": "Sustains continuous pod production.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 21,
+            "day_offset_max": 28,
+            "default_day_offset": 24,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": false,
+            "interval_days_min": 14,
+            "interval_days_max": 21,
+            "default_interval_days": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "bell_pepper",
+      "common_name": "Bell pepper",
+      "filipino_name": "Bell Pepper / Paminta",
+      "scientific_name": "Capsicum annuum",
+      "category": "fruit vegetable",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 70,
+        "max": 90,
+        "basis": "from transplanting"
+      },
+      "yield_per_plant": {
+        "min": 0.5,
+        "max": 1.5,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "Every 3-4 weeks",
+          "fertilizer": "Complete fertilizer, increasing potassium during fruiting",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 21,
+            "day_offset_max": 28,
+            "default_day_offset": 24,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 21,
+            "interval_days_max": 28,
+            "default_interval_days": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "kamote",
+      "common_name": "Sweet potato",
+      "filipino_name": "Kamote",
+      "scientific_name": "Ipomoea batatas",
+      "category": "root crop",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from planting of vine cuttings"
+      },
+      "yield_per_plant": {
+        "min": 0.3,
+        "max": 0.8,
+        "unit": "kg",
+        "notes": "storage roots per hill"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Low-nitrogen, phosphorus/potassium-rich fertilizer (e.g., 0-20-20 or organic compost)",
+          "notes": "Excess nitrogen favors vine growth over root formation.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress (optional)",
+          "timing": "30-40 days after planting",
+          "fertilizer": "Potassium-rich fertilizer (muriate of potash)",
+          "notes": "Improves tuber size and quality.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 30,
+            "day_offset_max": 40,
+            "default_day_offset": 35,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "kamoteng_kahoy",
+      "common_name": "Cassava",
+      "filipino_name": "Kamoteng Kahoy",
+      "scientific_name": "Manihot esculenta",
+      "category": "root crop",
+      "in_bahay_kubo_song": false,
+      "days_to_harvest": {
+        "min": 240,
+        "max": 360,
+        "basis": "from planting of stem cuttings (8-12 months)"
+      },
+      "yield_per_plant": {
+        "min": 2.0,
+        "max": 5.0,
+        "unit": "kg",
+        "notes": "tuberous roots per plant"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), moderate rate",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "2-3 months after planting",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "Cassava is a heavy potassium feeder for root bulking; keep nitrogen moderate.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 60,
+            "day_offset_max": 90,
+            "default_day_offset": 75,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "singkamas",
+      "common_name": "Jicama / Yam bean",
+      "filipino_name": "Singkamas",
+      "scientific_name": "Pachyrhizus erosus",
+      "category": "root crop / legume",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 120,
+        "max": 150,
+        "basis": "from direct seeding, for root harvest"
+      },
+      "yield_per_plant": {
+        "min": 0.5,
+        "max": 1.0,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Phosphorus/potassium-rich fertilizer, low nitrogen",
+          "notes": "As a legume it fixes some nitrogen; too much N favors vines over roots.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Maintenance",
+          "timing": "Mid-season",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "Flowers/pods are typically pinched off to redirect energy to root growth (seeds/pods are toxic).",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 60,
+            "day_offset_max": 75,
+            "default_day_offset": 68,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": true,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "sigarilyas",
+      "common_name": "Winged bean",
+      "filipino_name": "Sigarilyas",
+      "scientific_name": "Psophocarpus tetragonolobus",
+      "category": "legume vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 75,
+        "max": 90,
+        "basis": "from direct seeding, for pod harvest"
+      },
+      "yield_per_plant": {
+        "min": 1.0,
+        "max": 2.0,
+        "unit": "kg",
+        "notes": "climbing vine, harvested continuously"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), low-moderate rate",
+          "notes": "Legume; fixes own nitrogen once established.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "At flowering, then every 3-4 weeks",
+          "fertilizer": "Phosphorus/potassium-rich fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 35,
+            "day_offset_max": 40,
+            "default_day_offset": 38,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 21,
+            "interval_days_max": 28,
+            "default_interval_days": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "mani",
+      "common_name": "Peanut / Groundnut",
+      "filipino_name": "Mani",
+      "scientific_name": "Arachis hypogaea",
+      "category": "legume",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 0.03,
+        "max": 0.06,
+        "unit": "kg (shelled pods)",
+        "notes": "small per-plant yield; commercial yield is usually reported per hectare (~1-2 tons/ha)"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Low nitrogen, phosphorus-rich fertilizer (e.g., 0-20-0 or complete at low rate)",
+          "notes": "Peanut fixes its own nitrogen via root nodules.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Pegging stage",
+          "timing": "At flowering/pegging (35-45 days)",
+          "fertilizer": "Gypsum (calcium sulfate)",
+          "notes": "Calcium is critical for pod/seed fill at this stage.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 35,
+            "day_offset_max": 45,
+            "default_day_offset": 40,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "bataw",
+      "common_name": "Hyacinth bean / Lablab bean",
+      "filipino_name": "Bataw",
+      "scientific_name": "Lablab purpureus",
+      "category": "legume vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from direct seeding, for pod harvest"
+      },
+      "yield_per_plant": {
+        "min": 0.5,
+        "max": 1.0,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), low rate",
+          "notes": "Legume; minimal supplemental nitrogen needed.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "At flowering",
+          "fertilizer": "Phosphorus/potassium-rich fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 45,
+            "day_offset_max": 55,
+            "default_day_offset": 50,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": true,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "patani",
+      "common_name": "Lima bean",
+      "filipino_name": "Patani",
+      "scientific_name": "Phaseolus lunatus",
+      "category": "legume vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 100,
+        "basis": "from direct seeding (bush type); pole types up to 120 days"
+      },
+      "yield_per_plant": {
+        "min": 0.3,
+        "max": 0.6,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), low-moderate N",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "At flowering/pod set",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 40,
+            "day_offset_max": 50,
+            "default_day_offset": 45,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": true,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "kundol",
+      "common_name": "Winter melon / Wax gourd",
+      "filipino_name": "Kundol",
+      "scientific_name": "Benincasa hispida",
+      "category": "vine vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 5.0,
+        "max": 15.0,
+        "unit": "kg",
+        "notes": "usually 1-3 large fruits per plant, 3-8 kg each"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Vining stage",
+          "timing": "3-4 weeks after planting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 21,
+            "day_offset_max": 28,
+            "default_day_offset": 24,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Fruiting stage",
+          "timing": "After fruit set, every 2-3 weeks",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "Supports large fruit development.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 35,
+            "day_offset_max": 42,
+            "default_day_offset": 38,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 14,
+            "interval_days_max": 21,
+            "default_interval_days": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "patola",
+      "common_name": "Luffa / Sponge gourd / Ridged gourd",
+      "filipino_name": "Patola",
+      "scientific_name": "Luffa acutangula / Luffa cylindrica",
+      "category": "vine vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 55,
+        "max": 65,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 3.0,
+        "max": 6.0,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "Every 2-3 weeks during vining and fruiting",
+          "fertilizer": "Complete or potassium-rich fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 14,
+            "day_offset_max": 21,
+            "default_day_offset": 18,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 14,
+            "interval_days_max": 21,
+            "default_interval_days": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "upo",
+      "common_name": "Bottle gourd",
+      "filipino_name": "Upo",
+      "scientific_name": "Lagenaria siceraria",
+      "category": "vine vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 55,
+        "max": 70,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 5.0,
+        "max": 10.0,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Vining stage",
+          "timing": "2-3 weeks after planting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 14,
+            "day_offset_max": 21,
+            "default_day_offset": 18,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Fruiting stage",
+          "timing": "After fruit set, every 2-3 weeks",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 28,
+            "day_offset_max": 35,
+            "default_day_offset": 32,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 14,
+            "interval_days_max": 21,
+            "default_interval_days": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "kalabasa",
+      "common_name": "Squash / Pumpkin",
+      "filipino_name": "Kalabasa",
+      "scientific_name": "Cucurbita moschata",
+      "category": "vine vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from direct seeding, for mature fruit"
+      },
+      "yield_per_plant": {
+        "min": 3.0,
+        "max": 8.0,
+        "unit": "kg",
+        "notes": "typically 2-4 fruits per plant"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Vining stage",
+          "timing": "3-4 weeks after planting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 21,
+            "day_offset_max": 28,
+            "default_day_offset": 24,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Flowering/fruiting",
+          "timing": "At flowering, then every 3 weeks",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 35,
+            "day_offset_max": 42,
+            "default_day_offset": 38,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 21,
+            "interval_days_max": 21,
+            "default_interval_days": 21
+          }
+        }
+      ]
+    },
+    {
+      "id": "labanos",
+      "common_name": "Radish",
+      "filipino_name": "Labanos",
+      "scientific_name": "Raphanus sativus",
+      "category": "root vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 25,
+        "max": 35,
+        "basis": "from direct seeding (small round types); Asian long radish may take 45-60 days"
+      },
+      "yield_per_plant": {
+        "min": 0.1,
+        "max": 0.3,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), light rate",
+          "notes": "Excess nitrogen causes forked/misshapen roots and excess leaf growth.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress (optional)",
+          "timing": "10-14 days after emergence",
+          "fertilizer": "Light urea application",
+          "notes": "Only if growth is slow; radish matures quickly.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 10,
+            "day_offset_max": 14,
+            "default_day_offset": 12,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "mustasa",
+      "common_name": "Mustard greens",
+      "filipino_name": "Mustasa",
+      "scientific_name": "Brassica juncea",
+      "category": "leafy vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 30,
+        "max": 45,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 0.1,
+        "max": 0.2,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress",
+          "timing": "2 weeks after emergence",
+          "fertilizer": "Urea (46-0-0), light application",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 14,
+            "day_offset_max": 14,
+            "default_day_offset": 14,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "sibuyas",
+      "common_name": "Onion",
+      "filipino_name": "Sibuyas",
+      "scientific_name": "Allium cepa",
+      "category": "bulb vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from transplanting of seedlings"
+      },
+      "yield_per_plant": {
+        "min": 0.05,
+        "max": 0.15,
+        "unit": "kg",
+        "notes": "bulb weight"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "30 days after transplanting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 30,
+            "day_offset_max": 30,
+            "default_day_offset": 30,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2",
+          "timing": "45 days after transplanting",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "Reduce nitrogen and favor potassium as bulbs begin to form/mature.",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 45,
+            "day_offset_max": 45,
+            "default_day_offset": 45,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "kamatis",
+      "common_name": "Tomato (duplicate reference)",
+      "filipino_name": "Kamatis",
+      "scientific_name": "Solanum lycopersicum",
+      "category": "fruit vegetable",
+      "in_bahay_kubo_song": true,
+      "note": "See 'tomato' entry above — Kamatis is the Filipino name for tomato, listed separately here since it is explicitly named in the Bahay Kubo song.",
+      "days_to_harvest": {
+        "min": 60,
+        "max": 85,
+        "basis": "from transplanting"
+      },
+      "yield_per_plant": {
+        "min": 1.5,
+        "max": 3.0,
+        "unit": "kg"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At transplanting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "2-3 weeks after transplanting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 14,
+            "day_offset_max": 21,
+            "default_day_offset": 18,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2 onward",
+          "timing": "At flowering and every 2-3 weeks during fruiting",
+          "fertilizer": "Potassium-rich or complete fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "transplanting",
+            "day_offset_min": 25,
+            "day_offset_max": 28,
+            "default_day_offset": 26,
+            "recurring": true,
+            "repeat_until_harvest": true,
+            "estimated": true,
+            "interval_days_min": 14,
+            "interval_days_max": 21,
+            "default_interval_days": 18
+          }
+        }
+      ]
+    },
+    {
+      "id": "bawang",
+      "common_name": "Garlic",
+      "filipino_name": "Bawang",
+      "scientific_name": "Allium sativum",
+      "category": "bulb vegetable",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 90,
+        "max": 120,
+        "basis": "from planting of cloves"
+      },
+      "yield_per_plant": {
+        "min": 0.02,
+        "max": 0.05,
+        "unit": "kg",
+        "notes": "bulb weight"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "30 days after planting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 30,
+            "day_offset_max": 30,
+            "default_day_offset": 30,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2",
+          "timing": "45 days after planting",
+          "fertilizer": "Phosphorus/potassium-rich fertilizer",
+          "notes": "Supports bulb development.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 45,
+            "day_offset_max": 45,
+            "default_day_offset": 45,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "luya",
+      "common_name": "Ginger",
+      "filipino_name": "Luya",
+      "scientific_name": "Zingiber officinale",
+      "category": "rhizome / spice crop",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 240,
+        "max": 300,
+        "basis": "from planting of rhizome sets (8-10 months)"
+      },
+      "yield_per_plant": {
+        "min": 0.3,
+        "max": 0.8,
+        "unit": "kg",
+        "notes": "rhizome cluster weight"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14) with organic matter",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 1",
+          "timing": "2 months after planting",
+          "fertilizer": "Urea (46-0-0)",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 60,
+            "day_offset_max": 60,
+            "default_day_offset": 60,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 2",
+          "timing": "4 months after planting",
+          "fertilizer": "Complete fertilizer",
+          "notes": "",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 120,
+            "day_offset_max": 120,
+            "default_day_offset": 120,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress 3",
+          "timing": "6 months after planting",
+          "fertilizer": "Potassium-rich fertilizer",
+          "notes": "Supports rhizome bulking before harvest.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 180,
+            "day_offset_max": 180,
+            "default_day_offset": 180,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "linga",
+      "common_name": "Sesame",
+      "filipino_name": "Linga",
+      "scientific_name": "Sesamum indicum",
+      "category": "oilseed",
+      "in_bahay_kubo_song": true,
+      "days_to_harvest": {
+        "min": 80,
+        "max": 100,
+        "basis": "from direct seeding"
+      },
+      "yield_per_plant": {
+        "min": 0.005,
+        "max": 0.015,
+        "unit": "kg (seed)",
+        "notes": "very small per-plant yield; typically evaluated per hectare (~400-800 kg/ha)"
+      },
+      "fertilization_schedule": [
+        {
+          "stage": "Basal",
+          "timing": "At planting",
+          "fertilizer": "Complete fertilizer (14-14-14), low-moderate rate",
+          "notes": "Sesame is generally low-input and drought-tolerant.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 0,
+            "day_offset_max": 0,
+            "default_day_offset": 0,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": false,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        },
+        {
+          "stage": "Side-dress (optional)",
+          "timing": "3-4 weeks after planting",
+          "fertilizer": "Light urea application",
+          "notes": "Only on poor soils; avoid excess nitrogen, which delays maturity.",
+          "schedule": {
+            "planting_reference": "seeding",
+            "day_offset_min": 21,
+            "day_offset_max": 28,
+            "default_day_offset": 24,
+            "recurring": false,
+            "repeat_until_harvest": false,
+            "estimated": true,
+            "interval_days_min": null,
+            "interval_days_max": null,
+            "default_interval_days": null
+          }
+        }
+      ]
+    }
+  ]
+}
