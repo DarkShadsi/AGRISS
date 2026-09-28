@@ -6,6 +6,7 @@ const base = () =>
     db
         .select({
             id: activeTasks.id,
+            cycleId: activeTasks.cycleId,
             taskType: activeTasks.taskType,
             scheduledDate: activeTasks.scheduledDate,
             completedDate: activeTasks.completedDate,
@@ -40,4 +41,12 @@ export function completeTask(id: string) {
         .set({ status: 'done', completedDate: new Date() })
         .where(eq(activeTasks.id, id))
         .run();
+}
+
+export function getUpcomingHarvests() {
+    return base()
+        .where(and(eq(activeTasks.status, 'pending'), eq(activeTasks.taskType, 'harvest')))
+        .orderBy(asc(activeTasks.scheduledDate))
+        .limit(5)
+        .all();
 }

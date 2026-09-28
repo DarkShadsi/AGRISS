@@ -9,6 +9,14 @@ import {
     activeTasks,
 } from '@/db/schema';
 
+const GRACE_DAYS = 3; // still create tasks up to 3 days before today
+
+const startOfDay = (d: Date) => {
+    const x = new Date(d);
+    x.setHours(0, 0, 0, 0);
+    return x;
+};
+
 const addDays = (date: Date, days: number) => {
     const d = new Date(date);
     d.setDate(d.getDate() + days);
@@ -54,24 +62,30 @@ export function addCrop({ cropId, block, quantity, plantingDate }: AddCropInput)
     const cycleId = randomUUID();
     const tasks: (typeof activeTasks.$inferInsert)[] = [];
 
+    // Tasks scheduled before this date are skipped
+    
+    const cutoff = addDays(startOfDay(new Date()), -GRACE_DAYS);
+
     for (const t of templates) {
-        // First occurrence, then repeat every intervalDays until harvest
         let offset = t.dayOffset;
         do {
-            tasks.push({
-                id: randomUUID(),
-                cycleId,
-                templateId: t.id,
-                taskName: t.taskName,
-                taskType: t.taskType,
-                scheduledDate: addDays(plantingDate, offset),
-                status: 'pending',
-            });
+            const scheduledDate = addDays(plantingDate, offset);
+            if (scheduledDate >= cutoff) {
+                tasks.push({
+                    id: randomUUID(),
+                    cycleId,
+                    templateId: t.id,
+                    taskName: t.taskName,
+                    taskType: t.taskType,
+                    scheduledDate,
+                    status: 'pending',
+                });
+            }
             offset += t.intervalDays ?? 0;
         } while (t.intervalDays && offset < crop.growthCycleDays);
     }
 
-    // Harvest task (not in the JSON, so it's generated here)
+    // Harvest is always created, even if it's already due
     tasks.push({
         id: randomUUID(),
         cycleId,

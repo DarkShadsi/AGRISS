@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getPendingTasks, getActivityLog, completeTask } from '@/services/taskService';
 
@@ -30,6 +30,7 @@ function groupByDate(tasks: Task[], dateOf: (t: Task) => Date, todayLabel: strin
 }
 
 export default function TasksScreen() {
+    const router = useRouter();
     const [tab, setTab] = useState<'tasks' | 'log'>('tasks');
     const [pending, setPending] = useState<Task[]>([]);
     const [log, setLog] = useState<Task[]>([]);
@@ -40,7 +41,13 @@ export default function TasksScreen() {
     }, []);
     useFocusEffect(load);
 
-    const done = (id: string) => { completeTask(id); load(); };
+    const done = (t: Task) => {
+        completeTask(t.id);
+        load();
+        if (t.taskType === 'harvest' && t.cycleId) {
+            router.push({ pathname: '/add-sale', params: { cycleId: t.cycleId } });
+        }
+    };
 
     const sections = tab === 'tasks'
         ? groupByDate(pending, (t) => t.scheduledDate, 'Today')
@@ -85,7 +92,7 @@ export default function TasksScreen() {
                                 </Text>
                             </View>
                             {tab === 'tasks' && isDue(t) && (
-                                <Pressable style={s.check} onPress={() => done(t.id)} hitSlop={8} />
+                                <Pressable style={s.check} onPress={() => done(t)} hitSlop={8} />
                             )}
                         </View>
                     );
