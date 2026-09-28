@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Alert, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Link, useFocusEffect } from 'expo-router';
+import { useFocusEffect } from 'expo-router';
+import { AddCropModal } from '@/components/add-crop-modal';  const [adding, setAdding] = useState(false);
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getCropCards, deleteCrop } from '@/services/cropService';
 
@@ -11,6 +12,7 @@ const inDays = (n: number | null) =>
 
 export default function CropsScreen() {
     const [crops, setCrops] = useState<Card[]>([]);
+    const [adding, setAdding] = useState(false);
 
     // Reload every time the tab gains focus (e.g. after adding a crop)
     useFocusEffect(useCallback(() => { setCrops(getCropCards()); }, []));
@@ -51,9 +53,15 @@ export default function CropsScreen() {
                     </View>
                 )}
             />
-            <Link href="/add-crop" style={s.fab}>
+            <Pressable style={s.fab} onPress={() => setAdding(true)}>
                 <Text style={s.fabText}>+</Text>
-            </Link>
+            </Pressable>
+            {adding && (
+                <AddCropModal
+                    onClose={() => setAdding(false)}
+                    onSaved={() => setCrops(getCropCards())}
+                />
+            )}
         </SafeAreaView>
     );
 }
@@ -67,8 +75,7 @@ const s = StyleSheet.create({
     menu: { fontSize: 20, fontWeight: '700' },
     fab: {
         position: 'absolute', right: 20, bottom: 24, width: 56, height: 56,
-        borderRadius: 28, backgroundColor: '#22b573', textAlign: 'center',
-        lineHeight: 56, overflow: 'hidden',
+        borderRadius: 28, backgroundColor: '#22b573', alignItems: 'center', justifyContent: 'center'
     },
     fabText: { color: '#fff', fontSize: 30 },
 });

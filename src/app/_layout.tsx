@@ -32,8 +32,6 @@ export default function RootLayout() {
     return (
         <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="add-crop" options={{ presentation: 'modal', title: 'Add Crop' }} />
-            <Stack.Screen name="add-sale" options={{ presentation: 'modal', title: 'Add Sale' }} />
         </Stack>
 
     );

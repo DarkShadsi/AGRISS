@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Pressable, SectionList, StyleSheet, Text, View } from 'react-native';
-import { useFocusEffect, useRouter } from 'expo-router';
+import { useFocusEffect } from 'expo-router';
+import { AddSaleModal } from '@/components/add-sale-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getPendingTasks, getActivityLog, completeTask } from '@/services/taskService';
 
@@ -30,7 +31,7 @@ function groupByDate(tasks: Task[], dateOf: (t: Task) => Date, todayLabel: strin
 }
 
 export default function TasksScreen() {
-    const router = useRouter();
+    const [saleFor, setSaleFor] = useState<string | null>(null);
     const [tab, setTab] = useState<'tasks' | 'log'>('tasks');
     const [pending, setPending] = useState<Task[]>([]);
     const [log, setLog] = useState<Task[]>([]);
@@ -45,7 +46,7 @@ export default function TasksScreen() {
         completeTask(t.id);
         load();
         if (t.taskType === 'harvest' && t.cycleId) {
-            router.push({ pathname: '/add-sale', params: { cycleId: t.cycleId } });
+            setSaleFor(t.cycleId);
         }
     };
 
@@ -98,6 +99,7 @@ export default function TasksScreen() {
                     );
                 }}
             />
+            {saleFor && <AddSaleModal cycleId={saleFor} onClose={() => setSaleFor(null)} />}
         </SafeAreaView>
     );
 }

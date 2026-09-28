@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Alert, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-import { Link, useFocusEffect } from 'expo-router';
+import { useFocusEffect } from 'expo-router';
+import { AddSaleModal } from '@/components/add-sale-modal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Period, getSales, getTotals, deleteSale } from '@/services/ledgerService';
 
@@ -10,6 +11,7 @@ const peso = (n: number) =>
 export default function AnalyticsScreen() {
     const [period, setPeriod] = useState<Period>('overall');
     const [sales, setSales] = useState<ReturnType<typeof getSales>>([]);
+    const [adding, setAdding] = useState(false);
 
     const load = useCallback(() => setSales(getSales(period)), [period]);
     useFocusEffect(load);
@@ -68,7 +70,10 @@ export default function AnalyticsScreen() {
                     </Pressable>
                 )}
             />
-            <Link href="/add-sale" style={s.fab}><Text style={s.fabText}>+</Text></Link>
+            <Pressable style={s.fab} onPress={() => setAdding(true)}>
+                <Text style={s.fabText}>+</Text>
+            </Pressable>
+            {adding && <AddSaleModal onClose={() => setAdding(false)} onSaved={load} />}
         </SafeAreaView>
     );
 }
@@ -92,7 +97,7 @@ const s = StyleSheet.create({
     green: { color: '#1a9a5f', fontWeight: '700' },
     fab: {
         position: 'absolute', right: 20, bottom: 24, width: 56, height: 56, borderRadius: 28,
-        backgroundColor: '#22b573', textAlign: 'center', lineHeight: 56, overflow: 'hidden',
+        backgroundColor: '#22b573', alignItems: 'center', justifyContent: 'center',
     },
     fabText: { color: '#fff', fontSize: 30 },
 });

@@ -1,8 +1,10 @@
 import { useCallback, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Link, useFocusEffect, useRouter } from 'expo-router';
+import { useFocusEffect } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getPendingTasks, getUpcomingHarvests, completeTask } from '@/services/taskService';
+import { AddCropModal } from '@/components/add-crop-modal';
+import { AddSaleModal } from '@/components/add-sale-modal';
 
 type Task = ReturnType<typeof getPendingTasks>[number];
 
@@ -23,7 +25,8 @@ const greeting = () => {
 };
 
 export default function Dashboard() {
-    const router = useRouter();
+    const [addingCrop, setAddingCrop] = useState(false);
+    const [saleFor, setSaleFor] = useState<string | null>(null);
     const [today, setToday] = useState<Task[]>([]);
     const [harvests, setHarvests] = useState<Task[]>([]);
 
@@ -37,9 +40,7 @@ export default function Dashboard() {
     const done = (t: Task) => {
         completeTask(t.id);
         load();
-        if (t.taskType === 'harvest' && t.cycleId) {
-            router.push({ pathname: '/add-sale', params: { cycleId: t.cycleId } });
-        }
+        if (t.taskType === 'harvest' && t.cycleId) setSaleFor(t.cycleId);
     };
 
     return (
@@ -54,7 +55,9 @@ export default function Dashboard() {
                         <Text style={s.date}>
                             {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
                         </Text>
-                        <Link href="/add-crop" style={s.plus}>+</Link>
+                        <Pressable onPress={() => setAddingCrop(true)}>
+                            <Text style={s.plus}>+</Text>
+                        </Pressable>
                     </View>
                 </View>
 
@@ -91,6 +94,8 @@ export default function Dashboard() {
                     </View>
                 ))}
             </ScrollView>
+            {addingCrop && <AddCropModal onClose={() => setAddingCrop(false)} onSaved={load} />}
+            {saleFor && <AddSaleModal cycleId={saleFor} onClose={() => setSaleFor(null)} />}
         </SafeAreaView>
     );
 }
