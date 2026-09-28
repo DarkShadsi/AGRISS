@@ -4,6 +4,7 @@ import * as schema from './schema';
 
 // OPEN OR CREATE THE DATABASE
 const expoDb = openDatabaseSync('agriss.db');
+expoDb.execSync('PRAGMA foreign_keys = ON;');
 
 // INITIALIZE DRIZZLE WITH THE DATABASE AND SCHEMA
 export const db = drizzle(expoDb, { schema });

@@ -1,8 +1,8 @@
-import { db } from '../db/client';
-import { cropsCatalog, cropTasksTemplate } from '../db/schema';
+import { db } from '@/db/client';
+import { cropsCatalog, cropTasksTemplate } from '@/db/schema';
 
 export async function seedDatabase(seedData: any[]) {
-    console.log('🌱 Starting database seeding...');
+    console.log('Starting database seeding...');
 
     try {
         for (const crop of seedData) {
@@ -13,6 +13,7 @@ export async function seedDatabase(seedData: any[]) {
             await db.insert(cropsCatalog).values({
                 id: crop.id || `temp_${Math.random()}`,
                 name: crop.common_name || 'Unknown Crop',
+                filipinoName: crop.filipino_name ?? null, // NEW
                 variety: crop.variety || 'Standard',
                 growthCycleDays: crop.days_to_harvest?.min || 0,
             }).onConflictDoNothing();
@@ -25,10 +26,10 @@ export async function seedDatabase(seedData: any[]) {
                     const sched = task.schedule || {};
 
                     return {
-                        id: `${crop.id}_${task.stage?.replace(/\s+/g, '_').toLowerCase() ||
-                        'task'}`,
+                        id: `${crop.id}_${task.stage?.replace(/\s+/g, '_').toLowerCase() || 'task'}`,
                         cropId: crop.id,
                         taskName: task.stage || 'General Task',
+                        taskType: 'fertilize', // NEW: everything in the JSON is fertilization
                         dayOffset: sched.default_day_offset || 0,
                         intervalDays: sched.recurring ? sched.default_interval_days : null,
                         description: `Scheduled ${task.stage || 'task'} for
@@ -40,9 +41,9 @@ export async function seedDatabase(seedData: any[]) {
                     db.insert(cropTasksTemplate).values(templates).onConflictDoNothing();
             }
         }
-        console.log('✅  Database seeded successfully!');
+        console.log('Database seeded successfully!');
     } catch (error) {
-        console.error('❌  Seeding failed:', error);
+        console.error('Seeding failed:', error);
         throw error;
     }
 }
