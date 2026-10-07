@@ -46,4 +46,6 @@ export async function seedDatabase(seedData: any[]) {
         console.error('Seeding failed:', error);
         throw error;
     }
+
+    // I will edit this
 }
