@@ -1,0 +1,652 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 1
+/Kids [ 4 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 715 635 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 4523
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 16 Tf 19.2 TL ET
+.101961 .12549 .172549 rg
+BT 1 0 0 1 210.788 605 Tm (SD_D2: upcoming harvests quick view) Tj T* ET
+ 
+
+Q
+
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 715 585 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+50 503 m
+50 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+170 523 m
+170 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+327 523 m
+327 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+484 523 m
+484 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+641 523 m
+641 6 l
+S
+0 0 0 RG
+1.3 w
+[ ] 0 d
+0 0 0 rg
+n
+58 571 m
+58 575.4183 54.41828 579 50 579 c
+45.58172 579 42 575.4183 42 571 c
+42 566.5817 45.58172 563 50 563 c
+54.41828 563 58 566.5817 58 571 c
+B*
+n
+50 563 m
+50 541 l
+S
+n
+36 555 m
+64 555 l
+S
+n
+50 541 m
+39 527 l
+S
+n
+50 541 m
+61 527 l
+S
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 10.658 510 Tm
+(Farm Operator) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+112 523 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 133.322 547 Tm
+(\072HomeScreen) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+269 523 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 292.326 547 Tm
+(\072TaskService) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+426 523 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 453.658 547 Tm
+(\072Repository) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+583 523 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 612.656 547 Tm
+(\072SQLiteDB) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 73.31 484 Tm
+(open app \050or tap) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 84.995 471 Tm
+(HOME tab\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+50 463 m
+170 463 l
+S
+0 0 0 rg
+n
+170 463 m
+162 466.5 l
+162 459.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 195.99 438 Tm
+(getUpcomingHarvests\050\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+170 430 m
+327 430 l
+S
+0 0 0 rg
+n
+327 430 m
+319 433.5 l
+319 426.5 l
+h
+f*
+0.8 0.8 0.8 rg
+n
+14 396 26 14 re
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 21.72 399.5 Tm
+(alt) Tj
+T*
+ET
+0.2 0.8 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 399.5 Tm
+(\133harvests fetched\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 345.205 373 Tm
+(findPendingHarvestTasks\050\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 365 m
+484 365 l
+S
+0 0 0 rg
+n
+484 365 m
+476 368.5 l
+476 361.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 499.425 340 Tm
+(SELECT harvest tasks JOIN) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 511.65 327 Tm
+(crops ORDER BY date) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+484 319 m
+641 319 l
+S
+0 0 0 rg
+n
+641 319 m
+633 322.5 l
+633 315.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 551.945 294 Tm
+(rows) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+641 286 m
+484 286 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 286 m
+491 289.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 286 m
+491 282.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 376.045 261 Tm
+(harvest tasks) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+484 253 m
+327 253 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 253 m
+334 256.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 253 m
+334 249.5 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 231 m
+363 231 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+363 231 m
+363 207 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+363 207 m
+327 207 l
+S
+0 0 0 rg
+n
+327 207 m
+335 210.5 l
+335 203.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 371 222 Tm
+(compute days until) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 371 209 Tm
+(harvest\054 crop age) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 206.54 181 Tm
+(upcoming harvests) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 173 m
+170 173 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 173 m
+177 176.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 173 m
+177 169.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 59.99 148 Tm
+(show list \050nearest first\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 140 m
+50 140 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 140 m
+57 143.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 140 m
+57 136.5 l
+S
+0.3 0.3 0.3 RG
+0.9 w
+[ 4 3 ] 0 d
+n
+14 122 m
+699 122 l
+S
+1 0.2 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 109 Tm
+(\133error while opening app\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 237.945 85 Tm
+(error) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 77 m
+170 77 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 77 m
+177 80.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 77 m
+177 73.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 64.71 52 Tm
+(show error message) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 44 m
+50 44 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 44 m
+57 47.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 44 m
+57 40.5 l
+S
+0.3 0.3 0.3 RG
+1.5 w
+[ ] 0 d
+n
+14 26 685 384 re
+S
+Q
+
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000113 00000 n 
+0000000162 00000 n 
+0000000395 00000 n 
+0000004970 00000 n 
+0000005077 00000 n 
+0000005184 00000 n 
+trailer
+<<
+/Size 9
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+5296
+%%EOF

@@ -1,0 +1,984 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 1
+/Kids [ 4 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 715 1067 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 7088
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 16 Tf 19.2 TL ET
+.101961 .12549 .172549 rg
+BT 1 0 0 1 294.812 1037 Tm (SD_C1: add sale) Tj T* ET
+ 
+
+Q
+
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 715 1017 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+50 935 m
+50 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+170 955 m
+170 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+327 955 m
+327 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+484 955 m
+484 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+641 955 m
+641 6 l
+S
+0 0 0 RG
+1.3 w
+[ ] 0 d
+0 0 0 rg
+n
+58 1003 m
+58 1007.418 54.41828 1011 50 1011 c
+45.58172 1011 42 1007.418 42 1003 c
+42 998.5817 45.58172 995 50 995 c
+54.41828 995 58 998.5817 58 1003 c
+B*
+n
+50 995 m
+50 973 l
+S
+n
+36 987 m
+64 987 l
+S
+n
+50 973 m
+39 959 l
+S
+n
+50 973 m
+61 959 l
+S
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 10.658 942 Tm
+(Farm Operator) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+112 955 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 125.318 979 Tm
+(\072AnalyticsScreen) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+269 955 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 293.322 979 Tm
+(\072SaleService) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+426 955 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 453.658 979 Tm
+(\072Repository) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+583 955 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 612.656 979 Tm
+(\072SQLiteDB) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 60.735 916 Tm
+(tap \042\053\042 in ANALYTICS) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 103.05 903 Tm
+(tab) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+50 895 m
+170 895 l
+S
+0 0 0 rg
+n
+170 895 m
+162 898.5 l
+162 891.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 61.36 870 Tm
+(show Add Sale popup) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 862 m
+50 862 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 862 m
+57 865.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 862 m
+57 858.5 l
+S
+0.8 0.8 0.8 rg
+n
+14 828 26 14 re
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 21.72 831.5 Tm
+(alt) Tj
+T*
+ET
+0.4 0.4 0.4 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 831.5 Tm
+(\133Cancel \057 tap outside popup\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 83.04 805 Tm
+(close popup) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 797 m
+50 797 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 797 m
+57 800.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 797 m
+57 793.5 l
+S
+0.3 0.3 0.3 RG
+0.9 w
+[ 4 3 ] 0 d
+n
+14 779 m
+699 779 l
+S
+0.2 0.8 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 766 Tm
+(\133Add tapped\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58.59 742 Tm
+(select crop\073 enter yield\054) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 66.64 729 Tm
+(price\054 date\073 tap Add) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+50 721 m
+170 721 l
+S
+0 0 0 rg
+n
+170 721 m
+162 724.5 l
+162 717.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 217.095 696 Tm
+(addSale\050data\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+170 688 m
+327 688 l
+S
+0 0 0 rg
+n
+327 688 m
+319 691.5 l
+319 684.5 l
+h
+f*
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 666 m
+363 666 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+363 666 m
+363 642 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+363 642 m
+327 642 l
+S
+0 0 0 rg
+n
+327 642 m
+335 645.5 l
+335 638.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 371 650.5 Tm
+(validate input) Tj
+T*
+ET
+0.8 0.8 0.8 rg
+n
+22 608 26 14 re
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 29.72 611.5 Tm
+(alt) Tj
+T*
+ET
+1 0.2 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 611.5 Tm
+(\133some fields not filled\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 215.435 585 Tm
+(validation error) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 577 m
+170 577 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 577 m
+177 580.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 577 m
+177 573.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 86.385 552 Tm
+(show error) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 544 m
+50 544 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 544 m
+57 547.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 544 m
+57 540.5 l
+S
+0.3 0.3 0.3 RG
+0.9 w
+[ 4 3 ] 0 d
+n
+22 526 m
+691 526 l
+S
+1 0.2 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 513 Tm
+(\133system error while logging\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 237.945 489 Tm
+(error) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 481 m
+170 481 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 481 m
+177 484.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 481 m
+177 477.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 64.71 456 Tm
+(show error message) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 448 m
+50 448 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 448 m
+57 451.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 448 m
+57 444.5 l
+S
+0.3 0.3 0.3 RG
+0.9 w
+[ 4 3 ] 0 d
+n
+22 430 m
+691 430 l
+S
+0.2 0.8 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 417 Tm
+(\133input valid\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 370.21 393 Tm
+(insertSale\050data\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 385 m
+484 385 l
+S
+0 0 0 rg
+n
+484 385 m
+476 388.5 l
+476 381.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 517.77 360 Tm
+(INSERT INTO sales) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+484 352 m
+641 352 l
+S
+0 0 0 rg
+n
+641 352 m
+633 355.5 l
+633 348.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 548.05 327 Tm
+(sale id) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+641 319 m
+484 319 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 319 m
+491 322.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 319 m
+491 315.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 396.33 294 Tm
+(sale) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+484 286 m
+327 286 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 286 m
+334 289.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 286 m
+334 282.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 360.49 261 Tm
+(getSummary\050scope\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 253 m
+484 253 l
+S
+0 0 0 rg
+n
+484 253 m
+476 256.5 l
+476 249.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 515.55 228 Tm
+(SELECT SUM\050yield\051\054) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 521.665 215 Tm
+(SUM\050yield x price\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+484 207 m
+641 207 l
+S
+0 0 0 rg
+n
+641 207 m
+633 210.5 l
+633 203.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 550.55 182 Tm
+(totals) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+641 174 m
+484 174 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 174 m
+491 177.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 174 m
+491 170.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 384.945 149 Tm
+(summary) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+484 141 m
+327 141 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 141 m
+334 144.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 141 m
+334 137.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 184.725 116 Tm
+(success \053 updated summary) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 108 m
+170 108 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 108 m
+177 111.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 108 m
+177 104.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 60.81 83 Tm
+(show success\073 update) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 64.43 70 Tm
+(summary and ledger) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 62 m
+50 62 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 62 m
+57 65.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 62 m
+57 58.5 l
+S
+0.3 0.3 0.3 RG
+1.5 w
+[ ] 0 d
+n
+22 44 669 578 re
+S
+0.3 0.3 0.3 RG
+1.5 w
+[ ] 0 d
+n
+14 26 685 816 re
+S
+Q
+
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000113 00000 n 
+0000000162 00000 n 
+0000000396 00000 n 
+0000007536 00000 n 
+0000007643 00000 n 
+0000007750 00000 n 
+trailer
+<<
+/Size 9
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+7862
+%%EOF

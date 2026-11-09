@@ -1,0 +1,707 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 1
+/Kids [ 4 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 715 701 ]
+/Resources <<
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 4914
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 16 Tf 19.2 TL ET
+.101961 .12549 .172549 rg
+BT 1 0 0 1 250.796 671 Tm (SD_B7: task \(calendar view\)) Tj T* ET
+ 
+
+Q
+
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 715 651 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+50 569 m
+50 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+170 589 m
+170 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+327 589 m
+327 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+484 589 m
+484 6 l
+S
+0.2 0.2 0.2 RG
+0.9 w
+[ 3 3 ] 0 d
+n
+641 589 m
+641 6 l
+S
+0 0 0 RG
+1.3 w
+[ ] 0 d
+0 0 0 rg
+n
+58 637 m
+58 641.4183 54.41828 645 50 645 c
+45.58172 645 42 641.4183 42 637 c
+42 632.5817 45.58172 629 50 629 c
+54.41828 629 58 632.5817 58 637 c
+B*
+n
+50 629 m
+50 607 l
+S
+n
+36 621 m
+64 621 l
+S
+n
+50 607 m
+39 593 l
+S
+n
+50 607 m
+61 593 l
+S
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 10.658 576 Tm
+(Farm Operator) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+112 589 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 133.322 613 Tm
+(\072TasksScreen) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+269 589 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 292.326 613 Tm
+(\072TaskService) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+426 589 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 453.658 613 Tm
+(\072Repository) Tj
+T*
+ET
+0 0 0 RG
+1.5 w
+[ ] 0 d
+1 1 1 rg
+n
+583 589 116 56 re
+B*
+0 0 0 rg
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+BT
+1 0 0 1 612.656 613 Tm
+(\072SQLiteDB) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 76.925 550 Tm
+(tap TASKS tab) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+50 542 m
+170 542 l
+S
+0 0 0 rg
+n
+170 542 m
+162 545.5 l
+162 538.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 59.71 517 Tm
+(show list view \050default\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 509 m
+50 509 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 509 m
+57 512.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 509 m
+57 505.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 70.815 484 Tm
+(tap Calendar icon) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+50 476 m
+170 476 l
+S
+0 0 0 rg
+n
+170 476 m
+162 479.5 l
+162 472.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 190.705 451 Tm
+(getCalendarTasks\050month\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+170 443 m
+327 443 l
+S
+0 0 0 rg
+n
+327 443 m
+319 446.5 l
+319 439.5 l
+h
+f*
+0.8 0.8 0.8 rg
+n
+14 409 26 14 re
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 21.72 412.5 Tm
+(alt) Tj
+T*
+ET
+0.2 0.8 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 412.5 Tm
+(\133tasks fetched\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 328.805 386 Tm
+(findPendingTasksByMonth\050month\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 378 m
+484 378 l
+S
+0 0 0 rg
+n
+484 378 m
+476 381.5 l
+476 374.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 498.87 353 Tm
+(SELECT tasks WHERE date) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 543.325 340 Tm
+(in month) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+484 332 m
+641 332 l
+S
+0 0 0 rg
+n
+641 332 m
+633 335.5 l
+633 328.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 551.945 307 Tm
+(rows) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+641 299 m
+484 299 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 299 m
+491 302.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+484 299 m
+491 295.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 393.83 274 Tm
+(tasks) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+484 266 m
+327 266 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 266 m
+334 269.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+327 266 m
+334 262.5 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+327 244 m
+363 244 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+363 244 m
+363 220 l
+S
+0 0 0 RG
+1.2 w
+[ ] 0 d
+n
+363 220 m
+327 220 l
+S
+0 0 0 rg
+n
+327 220 m
+335 223.5 l
+335 216.5 l
+h
+f*
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 371 235 Tm
+(count tasks per date and) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 371 222 Tm
+(category) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 218.205 194 Tm
+(calendar data) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 186 m
+170 186 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 186 m
+177 189.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 186 m
+177 182.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 77.765 161 Tm
+(show calendar) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 64.43 148 Tm
+(\050color\055coded counts\051) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 140 m
+50 140 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 140 m
+57 143.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 140 m
+57 136.5 l
+S
+0.3 0.3 0.3 RG
+0.9 w
+[ 4 3 ] 0 d
+n
+14 122 m
+699 122 l
+S
+1 0.2 0.2 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 58 109 Tm
+(\133system error while displaying\135) Tj
+T*
+ET
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 237.945 85 Tm
+(error) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+327 77 m
+170 77 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 77 m
+177 80.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+170 77 m
+177 73.5 l
+S
+0 0 0 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 64.71 52 Tm
+(show error message) Tj
+T*
+ET
+0 0 0 RG
+1.2 w
+[ 4 3 ] 0 d
+n
+170 44 m
+50 44 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 44 m
+57 47.5 l
+S
+0 0 0 RG
+1 w
+[ ] 0 d
+n
+50 44 m
+57 40.5 l
+S
+0.3 0.3 0.3 RG
+1.5 w
+[ ] 0 d
+n
+14 26 685 397 re
+S
+Q
+
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000113 00000 n 
+0000000162 00000 n 
+0000000395 00000 n 
+0000005361 00000 n 
+0000005468 00000 n 
+0000005575 00000 n 
+trailer
+<<
+/Size 9
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+5687
+%%EOF
