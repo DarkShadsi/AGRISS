@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~57.0.26",
+    "drizzle-orm": "^0.45.4",
     "expo": "~57.0.32",
     "expo-constants": "~57.0.23",
     "expo-device": "~57.0.2",
@@ -13,6 +14,7 @@
     "expo-linking": "~57.0.13",
     "expo-router": "~57.0.30",
     "expo-splash-screen": "~57.0.11",
+    "expo-sqlite": "~57.0.4",
     "expo-status-bar": "~57.0.1",
     "expo-symbols": "~57.0.3",
     "expo-system-ui": "~57.0.4",
@@ -29,6 +31,8 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "babel-plugin-inline-import": "^3.0.0",
+    "drizzle-kit": "^0.31.11",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -37,7 +41,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "db:generate": "drizzle-kit generate"
   },
   "private": true
 }
