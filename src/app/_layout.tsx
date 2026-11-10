@@ -2,7 +2,8 @@ import '../global.css';
 import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import * as NavigationBar from 'expo-navigation-bar';
 import { useFonts, Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
 import { db } from '../core/database/client';
@@ -21,6 +22,15 @@ export default function RootLayout() {
         if (!success) return;
         try { seedIfNeeded(); setSeeded(true); } catch (e) { setSeedError(String(e)); }
     }, [success]);
+
+    useEffect(() => {
+        async function hideSystemBars() {
+            await NavigationBar.setVisibilityAsync("hidden");
+            await NavigationBar.setBehaviorAsync("sticky-immersive");
+        }
+
+        hideSystemBars();
+    }, []);
 
     const problem = error?.message ?? seedError;
     const ready = seeded && fontsLoaded;
