@@ -26,7 +26,8 @@ export const cropFertilizationStages = sqliteTable('crop_fertilization_stages', 
 
 export const crops = sqliteTable('crops', {
     id: integer('id').primaryKey({ autoIncrement: true }),
-    catalogId: integer('catalog_id').notNull().references(() => cropsCatalog.id),
+    catalogId: integer('catalog_id').references(() => cropsCatalog.id),
+    customName: text('custom_name'),
     block: text('block').notNull(),
     quantity: integer('quantity').notNull(),
     plantingDate: text('planting_date').notNull(),

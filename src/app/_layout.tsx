@@ -25,8 +25,14 @@ export default function RootLayout() {
 
     useEffect(() => {
         async function hideSystemBars() {
-            await NavigationBar.setVisibilityAsync("hidden");
-            await NavigationBar.setBehaviorAsync("sticky-immersive");
+            if (NavigationBar && typeof NavigationBar.setVisibilityAsync === 'function') {
+                try {
+                    await NavigationBar.setVisibilityAsync("hidden");
+                    await NavigationBar.setBehaviorAsync("sticky-immersive");
+                } catch (e) {
+                    console.log("Navigation bar error:", e);
+                }
+            }
         }
 
         hideSystemBars();

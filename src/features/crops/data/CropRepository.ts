@@ -5,13 +5,17 @@ import type { CatalogCrop } from './CatalogRepository';
 
 export type Crop = typeof crops.$inferSelect;
 export type NewCrop = typeof crops.$inferInsert;
-export type CropWithCatalog = { crop: Crop; catalog: CatalogCrop };
+export type CropWithCatalog = { crop: Crop; catalog: CatalogCrop | null };
 
 const baseQuery = () =>
     db
         .select({ crop: crops, catalog: cropsCatalog })
         .from(crops)
-        .innerJoin(cropsCatalog, eq(crops.catalogId, cropsCatalog.id));
+        .leftJoin(cropsCatalog, eq(crops.catalogId, cropsCatalog.id));
+
+export function cropName(item: CropWithCatalog): string {
+    return item.catalog?.englishName ?? item.crop.customName ?? 'Unnamed crop';
+}
 
 export const CropRepository = {
     findActive(): CropWithCatalog[] {
@@ -29,7 +33,10 @@ export const CropRepository = {
         return db.insert(crops).values(data).returning().get();
     },
 
-    update(id: number, data: Partial<Pick<NewCrop, 'catalogId' | 'block' | 'quantity' | 'plantingDate'>>): void {
+    update(
+        id: number,
+        data: Partial<Pick<NewCrop, 'catalogId' | 'customName' | 'block' | 'quantity' | 'plantingDate'>>
+    ): void {
         db.update(crops).set(data).where(eq(crops.id, id)).run();
     },
 
