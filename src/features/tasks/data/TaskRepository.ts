@@ -1,4 +1,4 @@
-import { and, count, eq, isNotNull, lt, max } from 'drizzle-orm';
+import { and, count, eq, isNotNull, lt, max, min } from 'drizzle-orm';
 import { db } from '../../../core/database/client';
 import { tasks } from '../../../core/database/schema';
 
@@ -62,5 +62,21 @@ export const TaskRepository = {
         const result: Record<number, string> = {};
         for (const r of rows) if (r.stageId !== null && r.d) result[r.stageId] = r.d;
         return result;
+    },
+    
+    nextPendingDate(cropId: number, category: 'harvest' | 'fertilize'): string | null {
+        const row = db
+            .select({ d: min(tasks.scheduledDate) })
+            .from(tasks)
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.category, category), eq(tasks.status, 'pending')))
+            .get();
+        return row?.d ?? null;
+    },
+
+    updatePendingAutoBlock(cropId: number, block: string): void {
+        db.update(tasks)
+            .set({ block })
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.source, 'auto'), eq(tasks.status, 'pending')))
+            .run();
     },
 };

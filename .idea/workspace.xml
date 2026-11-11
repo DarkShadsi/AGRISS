@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(crops): allow crops outside the catalog (custom_name)">
-      <change afterPath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): automatic task generation with horizons and overdue cleanup">
+      <change afterPath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/meta/_journal.json" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/meta/_journal.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drizzle/migrations.js" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/migrations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/database/schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/data/CropRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/data/CropRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" afterDir="false" />
     </list>
@@ -261,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794284911087</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat(tasks): automatic task generation with horizons and overdue cleanup">
+      <option name="closed" value="true" />
+      <created>1794364328456</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1794364328457</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -284,6 +289,7 @@
     <MESSAGE value="feat(ui): add theme, NativeWind, shared components" />
     <MESSAGE value="feat(crops): add catalog and crop repositories, date helpers" />
     <MESSAGE value="feat(crops): allow crops outside the catalog (custom_name)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(crops): allow crops outside the catalog (custom_name)" />
+    <MESSAGE value="feat(tasks): automatic task generation with horizons and overdue cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): automatic task generation with horizons and overdue cleanup" />
   </component>
 </project>

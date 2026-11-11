@@ -1,8 +1,10 @@
+import { View, Text, AppState } from 'react-native';
+import { TaskService } from '../features/tasks/services/TaskService';
 import '../global.css';
 import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import * as NavigationBar from 'expo-navigation-bar';
 import { useFonts, Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
@@ -20,8 +22,24 @@ export default function RootLayout() {
 
     useEffect(() => {
         if (!success) return;
-        try { seedIfNeeded(); setSeeded(true); } catch (e) { setSeedError(String(e)); }
+        try {
+            seedIfNeeded();
+            TaskService.runMaintenance();
+            setSeeded(true);
+        } catch (e) {
+            setSeedError(String(e));
+        }
     }, [success]);
+
+    useEffect(() => {
+        if (!seeded) return;
+        const sub = AppState.addEventListener('change', (state) => {
+            if (state === 'active') {
+                try { TaskService.runMaintenance(); } catch (e) { console.warn(e); }
+            }
+        });
+        return () => sub.remove();
+    }, [seeded]);
 
     useEffect(() => {
         async function hideSystemBars() {
