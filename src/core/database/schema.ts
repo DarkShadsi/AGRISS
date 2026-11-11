@@ -34,6 +34,8 @@ export const crops = sqliteTable('crops', {
     plantingDate: text('planting_date').notNull(),
     createdAt: integer('created_at').notNull(),
     deletedAt: integer('deleted_at'),
+    fertilizeTasksUntil: text('fertilize_tasks_until'),
+    harvestTasksUntil: text('harvest_tasks_until'),
 }, (t) => [index('idx_crops_deleted_at').on(t.deletedAt)]);
 
 export const tasks = sqliteTable('tasks', {

@@ -1,4 +1,4 @@
-import { and, eq } from 'drizzle-orm';
+import { and, count, eq, isNotNull, lt, max } from 'drizzle-orm';
 import { db } from '../../../core/database/client';
 import { tasks } from '../../../core/database/schema';
 
@@ -20,9 +20,47 @@ export const TaskRepository = {
         });
     },
 
-    deletePendingTasks(cropId: number): void {
+    deletePendingAutoTasks(cropId: number): void {
         db.delete(tasks)
-            .where(and(eq(tasks.cropId, cropId), eq(tasks.status, 'pending')))
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.source, 'auto'), eq(tasks.status, 'pending')))
             .run();
+    },
+
+    deletePendingTasks(cropId: number): void {
+        db.delete(tasks).where(and(eq(tasks.cropId, cropId), eq(tasks.status, 'pending'))).run();
+    },
+
+    deletePendingBefore(date: string): void {
+        db.delete(tasks).where(and(eq(tasks.status, 'pending'), lt(tasks.scheduledDate, date))).run();
+    },
+
+    countPendingAutoHarvests(cropId: number): number {
+        const row = db
+            .select({ n: count() })
+            .from(tasks)
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.source, 'auto'), eq(tasks.category, 'harvest'), eq(tasks.status, 'pending')))
+            .get();
+        return row?.n ?? 0;
+    },
+
+    latestCompletedHarvest(cropId: number): string | null {
+        const row = db
+            .select({ d: max(tasks.scheduledDate) })
+            .from(tasks)
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.category, 'harvest'), eq(tasks.status, 'completed')))
+            .get();
+        return row?.d ?? null;
+    },
+
+    latestCompletedByStage(cropId: number): Record<number, string> {
+        const rows = db
+            .select({ stageId: tasks.stageId, d: max(tasks.scheduledDate) })
+            .from(tasks)
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.category, 'fertilize'), eq(tasks.status, 'completed'), isNotNull(tasks.stageId)))
+            .groupBy(tasks.stageId)
+            .all();
+        const result: Record<number, string> = {};
+        for (const r of rows) if (r.stageId !== null && r.d) result[r.stageId] = r.d;
+        return result;
     },
 };
