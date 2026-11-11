@@ -22,3 +22,16 @@ export function addDays(s: string, days: number): string {
 export function diffInDays(from: string, to: string): number {
     return Math.round((parseDate(to).getTime() - parseDate(from).getTime()) / 86400000);
 }
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+export function formatLongDate(s: string): string {
+    const d = parseDate(s);
+    return `${MONTHS[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+}
+
+export function daysText(n: number): string {
+    if (n === 0) return 'today';
+    if (n === 1) return 'tomorrow';
+    return `${n} days`;
+}

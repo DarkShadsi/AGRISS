@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): automatic task generation with horizons and overdue cleanup">
-      <change afterPath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(crops): add CropService and daily task maintenance">
+      <change afterPath="$PROJECT_DIR$/src/features/crops/ui/CropCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/crops/ui/CropInfoPopup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/FabButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/Popup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/dates.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,23 +41,23 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000000000230864" />
-      <entry key="S60" value="1.000010374216176" />
-      <entry key="M2" value="1.011777181002584" />
-      <entry key="M5" value="2.1182227014624138" />
-      <entry key="M10" value="6.3451431985458475" />
-      <entry key="M15" value="10.040778340672707" />
-      <entry key="M30" value="16.49900610432949" />
-      <entry key="H1" value="30.435093766138273" />
-      <entry key="H2" value="102.79483153311621" />
-      <entry key="H4" value="260.97395214831965" />
-      <entry key="D1" value="621.5394731298251" />
-      <entry key="W1" value="725.0550139350203" />
+      <entry key="MS100" value="1.0000000781055334" />
+      <entry key="MS500" value="1.0378910255956793" />
+      <entry key="S2" value="1.44119856387506" />
+      <entry key="S5" value="1.7208644957644008" />
+      <entry key="S10" value="1.8490373936196218" />
+      <entry key="S30" value="1.9469105152717334" />
+      <entry key="S60" value="1.973093271619804" />
+      <entry key="M2" value="1.9864549009627863" />
+      <entry key="M5" value="1.9946323175897387" />
+      <entry key="M10" value="2.0344063176825102" />
+      <entry key="M15" value="2.324238235661361" />
+      <entry key="M30" value="4.972259477725801" />
+      <entry key="H1" value="14.919336719122324" />
+      <entry key="H2" value="68.97461579647108" />
+      <entry key="H4" value="212.6527538348989" />
+      <entry key="D1" value="601.7409966770762" />
+      <entry key="W1" value="723.3664893881892" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -62,37 +65,37 @@
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
-      <entry key="S30" value="2.2014275661111037E-150" />
-      <entry key="S60" value="1.538260306643069E-75" />
-      <entry key="M2" value="5.13567556189589E-38" />
-      <entry key="M5" value="2.5151435419166005E-15" />
-      <entry key="M10" value="1.1635971606257406E-7" />
-      <entry key="M15" value="5.0073814334186095E-5" />
-      <entry key="M30" value="0.0422369355977763" />
-      <entry key="H1" value="2.1662365877579055" />
-      <entry key="H2" value="17.882328042410904" />
-      <entry key="H4" value="52.876892245932865" />
-      <entry key="D1" value="132.19963014237447" />
-      <entry key="W1" value="154.8578852283829" />
+      <entry key="S30" value="4.8798505991852326E-195" />
+      <entry key="S60" value="7.242373135131604E-98" />
+      <entry key="M2" value="3.523896233377361E-49" />
+      <entry key="M5" value="8.612574433744854E-20" />
+      <entry key="M10" value="6.809069375622727E-10" />
+      <entry key="M15" value="1.6260506857315437E-6" />
+      <entry key="M30" value="0.007611216990283935" />
+      <entry key="H1" value="0.9195741149728902" />
+      <entry key="H2" value="11.651034360557764" />
+      <entry key="H4" value="42.68115221123215" />
+      <entry key="D1" value="127.56316191258983" />
+      <entry key="W1" value="154.07008750141065" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8179020585577811" />
-      <entry key="MS500" value="0.9605948639534766" />
-      <entry key="S2" value="0.9899997047180724" />
-      <entry key="S5" value="0.9959878167538044" />
-      <entry key="S10" value="0.99799189212829" />
-      <entry key="S30" value="0.9993301821767336" />
-      <entry key="S60" value="0.9996753978430167" />
-      <entry key="M2" value="1.0115895102846384" />
-      <entry key="M5" value="2.1170106112229607" />
-      <entry key="M10" value="6.342114525513163" />
-      <entry key="M15" value="10.037338630474931" />
-      <entry key="M30" value="16.53815155675487" />
-      <entry key="H1" value="32.59771808692893" />
-      <entry key="H2" value="120.66956611245497" />
-      <entry key="H4" value="313.840847143581" />
-      <entry key="D1" value="753.7351339210278" />
-      <entry key="W1" value="879.9122388012827" />
+      <entry key="MS100" value="0.913831520135811" />
+      <entry key="MS500" value="1.0191994233699835" />
+      <entry key="S2" value="1.4342634879058278" />
+      <entry key="S5" value="1.7174667793922842" />
+      <entry key="S10" value="1.8471956174927766" />
+      <entry key="S30" value="1.9462602088382197" />
+      <entry key="S60" value="1.9727632518008205" />
+      <entry key="M2" value="1.9862886492590826" />
+      <entry key="M5" value="1.9945654741006074" />
+      <entry key="M10" value="2.034355143188175" />
+      <entry key="M15" value="2.324104225467029" />
+      <entry key="M30" value="4.979302438837084" />
+      <entry key="H1" value="15.83737183334509" />
+      <entry key="H2" value="80.62069992810379" />
+      <entry key="H4" value="255.32583507284178" />
+      <entry key="D1" value="729.3003282178104" />
+      <entry key="W1" value="877.4359198536573" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -266,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794364328457</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat(crops): add CropService and daily task maintenance">
+      <option name="closed" value="true" />
+      <created>1794365264700</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1794365264700</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -290,6 +301,7 @@
     <MESSAGE value="feat(crops): add catalog and crop repositories, date helpers" />
     <MESSAGE value="feat(crops): allow crops outside the catalog (custom_name)" />
     <MESSAGE value="feat(tasks): automatic task generation with horizons and overdue cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): automatic task generation with horizons and overdue cleanup" />
+    <MESSAGE value="feat(crops): add CropService and daily task maintenance" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(crops): add CropService and daily task maintenance" />
   </component>
 </project>
