@@ -35,7 +35,7 @@ export const CropRepository = {
 
     update(
         id: number,
-        data: Partial<Pick<NewCrop, 'catalogId' | 'customName' | 'block' | 'quantity' | 'plantingDate'>>
+        data: Partial<Pick<NewCrop, 'catalogId' | 'customName' | 'block' | 'quantity' | 'unit' | 'plantingDate'>>
     ): void {
         db.update(crops).set(data).where(eq(crops.id, id)).run();
     },

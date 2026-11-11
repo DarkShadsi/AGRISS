@@ -30,6 +30,7 @@ export const crops = sqliteTable('crops', {
     customName: text('custom_name'),
     block: text('block').notNull(),
     quantity: integer('quantity').notNull(),
+    unit: text('unit').notNull().default('units'),
     plantingDate: text('planting_date').notNull(),
     createdAt: integer('created_at').notNull(),
     deletedAt: integer('deleted_at'),

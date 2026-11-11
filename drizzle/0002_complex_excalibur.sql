@@ -1,0 +1,1 @@
+ALTER TABLE `crops` ADD `unit` text DEFAULT 'units' NOT NULL;

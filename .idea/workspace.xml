@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(crops): allow crops outside the catalog (custom_name)">
+      <change afterPath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/meta/_journal.json" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/meta/_journal.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drizzle/migrations.js" beforeDir="false" afterPath="$PROJECT_DIR$/drizzle/migrations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/database/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/crops/data/CropRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/data/CropRepository.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/Admin/Documents/Repos/AGRISS" value="3LpUvOjx97UmdGuYcNX8QzTHNw9" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DarkShadsi&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DarkShadsi/AGRISS.git&quot;,
+    &quot;accountId&quot;: &quot;12ca0bc9-2fb4-4ab7-92d3-d35132ad55ae&quot;
+  }
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.6678483813052494" />
+      <entry key="MS500" value="3.1534465757756895" />
+      <entry key="S2" value="5.340949598991039" />
+      <entry key="S5" value="6.83045292839404" />
+      <entry key="S10" value="8.0665037223818" />
+      <entry key="S30" value="11.75403304103605" />
+      <entry key="S60" value="15.262090385946019" />
+      <entry key="M2" value="18.346289914201023" />
+      <entry key="M5" value="20.90212921897137" />
+      <entry key="M10" value="21.9067778052916" />
+      <entry key="M15" value="22.26145319435122" />
+      <entry key="M30" value="22.930687414668288" />
+      <entry key="H1" value="35.15048911207345" />
+      <entry key="H2" value="113.04680883452863" />
+      <entry key="H4" value="274.6301869165361" />
+      <entry key="D1" value="624.3805716192776" />
+      <entry key="W1" value="722.1901313400351" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="1.1715182110013713E-136" />
+      <entry key="S60" value="1.122153208211776E-68" />
+      <entry key="M2" value="1.3871030956794857E-34" />
+      <entry key="M5" value="5.931536949496626E-14" />
+      <entry key="M10" value="5.650734273249201E-7" />
+      <entry key="M15" value="1.43597042769939E-4" />
+      <entry key="M30" value="0.07152532044215977" />
+      <entry key="H1" value="2.818964405534271" />
+      <entry key="H2" value="20.399330310804963" />
+      <entry key="H4" value="56.47572939300363" />
+      <entry key="D1" value="133.65839073038666" />
+      <entry key="W1" value="155.10085059087524" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.5800200105241888" />
+      <entry key="MS500" value="3.108429356926092" />
+      <entry key="S2" value="5.299203334833136" />
+      <entry key="S5" value="6.802814474268779" />
+      <entry key="S10" value="8.036234116049286" />
+      <entry key="S30" value="11.680656119502073" />
+      <entry key="S60" value="15.188127363104973" />
+      <entry key="M2" value="18.292785490252786" />
+      <entry key="M5" value="20.875284286479534" />
+      <entry key="M10" value="21.892291729184212" />
+      <entry key="M15" value="22.251688909980498" />
+      <entry key="M30" value="22.99701260665015" />
+      <entry key="H1" value="37.96476776465774" />
+      <entry key="H2" value="133.43748381063082" />
+      <entry key="H4" value="331.09524198229104" />
+      <entry key="D1" value="758.0349497392872" />
+      <entry key="W1" value="877.2903206095623" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3LpUu6KaP72L9iTWB3ouDx7l4cH" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="ensembleEnabled" value="false" />
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/Documents/Repos/AGRISS/docs/diagrams&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.com.intellij.openapi.options.colors.pages.ANSIColoredConsoleColorsPage&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Admin\\AppData\\Roaming\\JetBrains\\IntelliJIdea2026.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\Repos\AGRISS\docs\diagrams" />
+      <recent name="C:\Users\Admin\Documents\Repos\AGRISS" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\tasks\ui" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="AGRISS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="AGRISS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.27258.48" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.27258.48" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="" />
+      <created>1794150731955</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794150731955</updated>
+    </task>
+    <task id="LOCAL-00001" summary="chore: initialize Expo project and feature folder structure">
+      <option name="closed" value="true" />
+      <created>1794187624725</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1794187624725</updated>
+    </task>
+    <task id="LOCAL-00002" summary="installed the packages, defined the tables so that it create the database when the app starts">
+      <option name="closed" value="true" />
+      <created>1794190965815</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1794190965815</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat(db): seed crop catalog from bundled JSON on first launch">
+      <option name="closed" value="true" />
+      <created>1794192992535</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1794192992535</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added Android build environment script">
+      <option name="closed" value="true" />
+      <created>1794216457932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1794216457932</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(ui): add theme, NativeWind, shared components">
+      <option name="closed" value="true" />
+      <created>1794236337524</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1794236337525</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(crops): add catalog and crop repositories, date helpers">
+      <option name="closed" value="true" />
+      <created>1794272228160</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1794272228160</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(crops): allow crops outside the catalog (custom_name)">
+      <option name="closed" value="true" />
+      <created>1794284911087</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1794284911087</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <envs>
+      <env key="PATH" value="C:\Users\Admin\.jdks\temurin-21.0.13\bin;;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Admin\AppData\Roaming\npm\node_modules;C:\Program Files\swipl\bin;C:\Program Files\dotnet\;C:\Users\Admin\Documents\Apps\Maven\apache-maven-3.9.11\bin;C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64;C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Scripts;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\CustomScripts;C:\Program Files\Java\jdk-25\bin;C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64;C:\ProgramData\ComposerSetup\bin;C:\Users\Admin\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Java\jdk-25;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Admin\AppData\Roaming\npm\node_modules;C:\Program Files\swipl\bin;C:\Program Files\dotnet\;C:\Users\Admin\Documents\Apps\Maven\apache-maven-3.9.11\bin;C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64;C:\Users\Admin\AppData\Local\Python\pythoncore-3.14-64\Scripts;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\CustomScripts;C:\Program Files\Java\jdk-25\bin;C:\laragon\bin\php\php-8.3.30-Win32-vs16-x64;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Java\jdk-25;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Admin\AppData\Roaming\npm\node_modules;C:\Program Files\swipl\bin;C:\Program Files\dotnet;C:\Users\Admin\.dotnet\tools;;C:\Users\Admin\AppData\Local\Programs\Ollama" />
+      <env key="JAVA_HOME" value="C:\Users\Admin\.jdks\temurin-21.0.13" />
+    </envs>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ps1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: initialize Expo project and feature folder structure" />
+    <MESSAGE value="installed the packages, defined the tables so that it create the database when the app starts" />
+    <MESSAGE value="feat(db): seed crop catalog from bundled JSON on first launch" />
+    <MESSAGE value="added Android build environment script" />
+    <MESSAGE value="feat(ui): add theme, NativeWind, shared components" />
+    <MESSAGE value="feat(crops): add catalog and crop repositories, date helpers" />
+    <MESSAGE value="feat(crops): allow crops outside the catalog (custom_name)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(crops): allow crops outside the catalog (custom_name)" />
+  </component>
+</project>
