@@ -48,6 +48,16 @@ function findCatalogMatch(name: string): CatalogCrop | undefined {
     );
 }
 
+function isBlockTaken(block: string, exceptId?: number): boolean {
+    const b = block.trim().toLowerCase();
+    return CropRepository.findActive().some(
+        (i) => i.crop.id !== exceptId && i.crop.block.trim().toLowerCase() === b
+    );
+}
+
+const blockTakenMessage = (block: string) =>
+    `Block ${block.trim()} already has a crop. Each block can hold only one crop.`;
+
 function toView(item: CropWithCatalog, today: string): CropView {
     const { crop, catalog } = item;
     const nextHarvest =
@@ -82,8 +92,22 @@ export const CropService = {
         return query.trim() ? CatalogRepository.findByName(query) : [];
     },
 
+    suggestNextBlock(): string {
+        const items = CropRepository.findActive();
+        if (items.length === 0) return '1';
+        const last = items.reduce((a, b) =>
+            b.crop.createdAt > a.crop.createdAt || (b.crop.createdAt === a.crop.createdAt && b.crop.id > a.crop.id) ? b : a
+        );
+        const m = last.crop.block.trim().match(/^(.*?)(\d+)$/);
+        if (!m) return '';
+        let n = Number(m[2]);
+        do { n += 1; } while (isBlockTaken(m[1] + n));
+        return m[1] + n;
+    },
+
     addCrop(input: CropInput): { ok: true; crop: Crop } | { ok: false; errors: CropErrors } {
         const { errors, quantity } = validate(input);
+        if (!errors.block && isBlockTaken(input.block)) errors.block = blockTakenMessage(input.block);
         if (Object.keys(errors).length > 0) return { ok: false, errors };
 
         const match = findCatalogMatch(input.name);
@@ -102,6 +126,7 @@ export const CropService = {
 
     updateCrop(id: number, input: CropInput): { ok: true } | { ok: false; errors: CropErrors } {
         const { errors, quantity } = validate(input);
+        if (!errors.block && isBlockTaken(input.block, id)) errors.block = blockTakenMessage(input.block);
         if (Object.keys(errors).length > 0) return { ok: false, errors };
         const before = CropRepository.findById(id);
         if (!before) return { ok: false, errors: { name: 'This crop no longer exists.' } };

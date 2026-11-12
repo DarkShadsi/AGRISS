@@ -14,20 +14,29 @@ import { addDays, todayString } from '../../../shared/utils/dates';
 import { CropService, type CropView } from '../services/CropService';
 import CropCard from './CropCard';
 import CropInfoPopup from './CropInfoPopup';
+import CropSortFilterBar from './CropSortFilterBar';
+import CropFilterPopup from './CropFilterPopup';
+import {
+    DEFAULT_FILTER, DEFAULT_SORT, SORT_LABELS, applyView, describeView, naturalCompare,
+    type CropFilter, type SortKey,
+} from './cropListOptions';
 
 export default function CropsScreen() {
     const [crops, setCrops] = useState<CropView[]>([]);
     const [query, setQuery] = useState('');
+    const [sort, setSort] = useState<SortKey>(DEFAULT_SORT);
+    const [filter, setFilter] = useState<CropFilter>(DEFAULT_FILTER);
+    const [sortOpen, setSortOpen] = useState(false);
+    const [filterOpen, setFilterOpen] = useState(false);
     const [menuFor, setMenuFor] = useState<CropView | null>(null);
     const [infoFor, setInfoFor] = useState<CropView | null>(null);
 
     const reload = useCallback(() => setCrops(CropService.getCrops()), []);
     useFocusEffect(reload);
 
-    const q = query.trim().toLowerCase();
-    const visible = q
-        ? crops.filter((c) => c.name.toLowerCase().includes(q) || c.block.toLowerCase().includes(q))
-        : crops;
+    const visible = applyView(crops, query, sort, filter);
+    const blocks = [...new Set(crops.map((c) => c.block))].sort(naturalCompare);
+    const filterActive = filter.type !== 'all' || filter.block !== null;
 
     // TEMPORARY test helpers (removed in Part 4.4)
     const addSamples = () => {
@@ -40,6 +49,7 @@ export default function CropsScreen() {
     const clearAll = () => {
         db.delete(tasksTable).run();
         db.delete(cropsTable).run();
+        setFilter(DEFAULT_FILTER);
         reload();
     };
 
@@ -58,10 +68,18 @@ export default function CropsScreen() {
                         style={{ flex: 1, fontFamily: FONT.regular, fontSize: SIZE.body, color: COLORS.ink, paddingVertical: 12 }}
                     />
                 </View>
+                <CropSortFilterBar
+                    summary={describeView(sort, filter)}
+                    sortActive={sort !== DEFAULT_SORT}
+                    filterActive={filterActive}
+                    onSort={() => setSortOpen(true)}
+                    onFilter={() => setFilterOpen(true)}
+                />
                 <View className="flex-row gap-3">
                     <View style={{ flex: 1 }}><AppButton title="+ Samples" variant="secondary" onPress={addSamples} /></View>
                     <View style={{ flex: 1 }}><AppButton title="Clear all" variant="danger" onPress={clearAll} /></View>
                 </View>
+                <AppText variant="label" tone="muted">TEMP - next block suggestion: {CropService.suggestNextBlock() || '(empty)'}</AppText>
             </View>
 
             <FlatList
@@ -71,7 +89,7 @@ export default function CropsScreen() {
                 renderItem={({ item }) => <CropCard crop={item} onMenu={() => setMenuFor(item)} />}
                 ListEmptyComponent={
                     <AppText tone="muted" style={{ textAlign: 'center', marginTop: 32 }}>
-                        {crops.length === 0 ? 'No crops yet. Tap + to add your first crop.' : 'No crops match your search.'}
+                        {crops.length === 0 ? 'No crops yet. Tap + to add your first crop.' : 'No crops match your search or filter.'}
                     </AppText>
                 }
             />
@@ -79,13 +97,31 @@ export default function CropsScreen() {
             <FabButton label="Add crop" onPress={() => { /* Part 4.4 */ }} />
 
             <OptionsPopup
+                visible={sortOpen}
+                title="Sort crops by"
+                onClose={() => setSortOpen(false)}
+                options={(Object.keys(SORT_LABELS) as SortKey[]).map((k) => ({
+                    label: SORT_LABELS[k],
+                    variant: sort === k ? 'primary' : 'secondary',
+                    onPress: () => { setSort(k); setSortOpen(false); },
+                }))}
+            />
+            <CropFilterPopup
+                visible={filterOpen}
+                blocks={blocks}
+                filter={filter}
+                onChange={setFilter}
+                onClose={() => setFilterOpen(false)}
+            />
+
+            <OptionsPopup
                 visible={!!menuFor}
                 title={menuFor?.name}
                 onClose={() => setMenuFor(null)}
                 options={[
                     { label: 'Info', onPress: () => { setInfoFor(menuFor); setMenuFor(null); } },
-                    { label: 'Edit', onPress: () => setMenuFor(null) },
-                    { label: 'Delete', variant: 'danger', onPress: () => setMenuFor(null) },
+                    { label: 'Edit', onPress: () => setMenuFor(null) },                       // Part 4.5
+                    { label: 'Delete', variant: 'danger', onPress: () => setMenuFor(null) },  // Part 4.5
                 ]}
             />
             <CropInfoPopup crop={infoFor} onClose={() => setInfoFor(null)} />
