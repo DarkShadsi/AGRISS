@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Modal, Pressable, View } from 'react-native';
+import { KeyboardAvoidingView, Modal, Pressable, View } from 'react-native';
 import AppText from './AppText';
 import AppButton from './AppButton';
 
@@ -8,11 +8,13 @@ type PopupProps = { visible: boolean; onClose: () => void; children: ReactNode }
 export function Popup({ visible, onClose, children }: PopupProps) {
     return (
         <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose} statusBarTranslucent>
-            <Pressable className="flex-1 bg-black/50 items-center justify-center px-5" onPress={onClose}>
-                <Pressable className="w-full max-w-[420px] bg-surface rounded-3xl p-5" onPress={() => {}}>
-                    {children}
+            <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+                <Pressable className="flex-1 bg-black/50 items-center justify-center px-5" onPress={onClose}>
+                    <Pressable className="w-full max-w-[420px] bg-surface rounded-3xl p-5" onPress={() => {}}>
+                        {children}
+                    </Pressable>
                 </Pressable>
-            </Pressable>
+            </KeyboardAvoidingView>
         </Modal>
     );
 }
@@ -34,6 +36,19 @@ export function OptionsPopup({ visible, title, options, onClose }: OptionsPopupP
                     <AppButton key={o.label} title={o.label} variant={o.variant ?? 'secondary'} onPress={o.onPress} />
                 ))}
             </View>
+        </Popup>
+    );
+}
+
+type MessagePopupProps = { visible: boolean; message: string; buttonLabel?: string; onClose: () => void };
+
+export function MessagePopup({ visible, message, buttonLabel = 'Okay', onClose }: MessagePopupProps) {
+    return (
+        <Popup visible={visible} onClose={onClose}>
+            <AppText variant="subheading" weight="semibold" style={{ marginBottom: 16 }}>
+                {message}
+            </AppText>
+            <AppButton title={buttonLabel} onPress={onClose} />
         </Popup>
     );
 }

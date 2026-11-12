@@ -2,20 +2,17 @@ import { useCallback, useState } from 'react';
 import { FlatList, TextInput, View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { db } from '../../../core/database/client';
-import { crops as cropsTable, tasks as tasksTable } from '../../../core/database/schema';
 import ScreenContainer from '../../../shared/components/ScreenContainer';
 import AppText from '../../../shared/components/AppText';
-import AppButton from '../../../shared/components/AppButton';
 import FabButton from '../../../shared/components/FabButton';
-import { OptionsPopup } from '../../../shared/components/Popup';
+import { MessagePopup, OptionsPopup } from '../../../shared/components/Popup';
 import { COLORS, FONT, SIZE } from '../../../shared/theme';
-import { addDays, todayString } from '../../../shared/utils/dates';
 import { CropService, type CropView } from '../services/CropService';
 import CropCard from './CropCard';
 import CropInfoPopup from './CropInfoPopup';
 import CropSortFilterBar from './CropSortFilterBar';
 import CropFilterPopup from './CropFilterPopup';
+import AddCropPopup from './AddCropPopup';
 import {
     DEFAULT_FILTER, DEFAULT_SORT, SORT_LABELS, applyView, describeView, naturalCompare,
     type CropFilter, type SortKey,
@@ -28,6 +25,8 @@ export default function CropsScreen() {
     const [filter, setFilter] = useState<CropFilter>(DEFAULT_FILTER);
     const [sortOpen, setSortOpen] = useState(false);
     const [filterOpen, setFilterOpen] = useState(false);
+    const [addOpen, setAddOpen] = useState(false);
+    const [notice, setNotice] = useState<string | null>(null);
     const [menuFor, setMenuFor] = useState<CropView | null>(null);
     const [infoFor, setInfoFor] = useState<CropView | null>(null);
 
@@ -37,21 +36,6 @@ export default function CropsScreen() {
     const visible = applyView(crops, query, sort, filter);
     const blocks = [...new Set(crops.map((c) => c.block))].sort(naturalCompare);
     const filterActive = filter.type !== 'all' || filter.block !== null;
-
-    // TEMPORARY test helpers (removed in Part 4.4)
-    const addSamples = () => {
-        const today = todayString();
-        CropService.addCrop({ name: 'Eggplant', block: '2', quantity: '200', plantingDate: addDays(today, -21) });
-        CropService.addCrop({ name: 'Tomato', block: '1', quantity: '150', plantingDate: addDays(today, -35) });
-        CropService.addCrop({ name: 'Pineapple', block: '3', quantity: '80', plantingDate: addDays(today, -10) });
-        reload();
-    };
-    const clearAll = () => {
-        db.delete(tasksTable).run();
-        db.delete(cropsTable).run();
-        setFilter(DEFAULT_FILTER);
-        reload();
-    };
 
     return (
         <ScreenContainer>
@@ -75,11 +59,6 @@ export default function CropsScreen() {
                     onSort={() => setSortOpen(true)}
                     onFilter={() => setFilterOpen(true)}
                 />
-                <View className="flex-row gap-3">
-                    <View style={{ flex: 1 }}><AppButton title="+ Samples" variant="secondary" onPress={addSamples} /></View>
-                    <View style={{ flex: 1 }}><AppButton title="Clear all" variant="danger" onPress={clearAll} /></View>
-                </View>
-                <AppText variant="label" tone="muted">TEMP - next block suggestion: {CropService.suggestNextBlock() || '(empty)'}</AppText>
             </View>
 
             <FlatList
@@ -94,7 +73,14 @@ export default function CropsScreen() {
                 }
             />
 
-            <FabButton label="Add crop" onPress={() => { /* Part 4.4 */ }} />
+            <FabButton label="Add crop" onPress={() => setAddOpen(true)} />
+
+            <AddCropPopup
+                visible={addOpen}
+                onClose={() => setAddOpen(false)}
+                onAdded={() => { reload(); setNotice('Crop has been added successfully!'); }}
+            />
+            <MessagePopup visible={!!notice} message={notice ?? ''} onClose={() => setNotice(null)} />
 
             <OptionsPopup
                 visible={sortOpen}
