@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Pressable, ScrollView, View, useWindowDimensions } from 'react-native';
+import { Pressable, ScrollView, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '../../../shared/theme';
 import { Popup } from '../../../shared/components/Popup';
 import AppText from '../../../shared/components/AppText';
 import AppButton from '../../../shared/components/AppButton';
@@ -11,7 +13,6 @@ import { CropService, type CropErrors } from '../services/CropService';
 type Props = { visible: boolean; onClose: () => void; onAdded: () => void };
 
 export default function AddCropPopup({ visible, onClose, onAdded }: Props) {
-    const { height } = useWindowDimensions();
     const [name, setName] = useState('');
     const [block, setBlock] = useState('');
     const [quantity, setQuantity] = useState('');
@@ -59,7 +60,7 @@ export default function AddCropPopup({ visible, onClose, onAdded }: Props) {
     return (
         <Popup visible={visible} onClose={onClose}>
             <AppText variant="heading" weight="bold" tone="primary" style={{ marginBottom: 12 }}>Add crop</AppText>
-            <ScrollView style={{ maxHeight: height * 0.62 }} keyboardShouldPersistTaps="handled">
+            <ScrollView style={{ flexShrink: 1 }} keyboardShouldPersistTaps="handled">
                 <View style={{ gap: 14 }}>
                     <View style={{ gap: 8 }}>
                         <TextField
@@ -73,18 +74,28 @@ export default function AddCropPopup({ visible, onClose, onAdded }: Props) {
                             autoCorrect={false}
                         />
                         {!exact && matches.length > 0 && (
-                            <View className="rounded-2xl border border-line bg-surface overflow-hidden">
+                            <View className="rounded-2xl bg-primary-soft overflow-hidden">
+                                <AppText
+                                    variant="label"
+                                    weight="semibold"
+                                    tone="primary"
+                                    style={{ paddingHorizontal: 16, paddingTop: 10, paddingBottom: 6 }}
+                                >
+                                    Suggestions: tap one to use it
+                                </AppText>
                                 {matches.slice(0, 5).map((c) => (
                                     <Pressable
                                         key={c.id}
                                         accessibilityRole="button"
                                         onPress={() => setName(c.englishName)}
-                                        className="min-h-[52px] justify-center px-4 border-b border-line"
+                                        className="flex-row items-center gap-3 min-h-[52px] px-4 border-t border-line active:bg-line"
                                     >
-                                        <AppText weight="semibold">
+                                        <Ionicons name="leaf" size={22} color={COLORS.primary} />
+                                        <AppText weight="semibold" style={{ flex: 1 }}>
                                             {c.englishName}
                                             {c.filipinoName ? <AppText tone="muted">{`  (${c.filipinoName})`}</AppText> : null}
                                         </AppText>
+                                        <Ionicons name="add-circle" size={26} color={COLORS.primary} />
                                     </Pressable>
                                 ))}
                             </View>

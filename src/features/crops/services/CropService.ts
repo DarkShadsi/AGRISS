@@ -92,18 +92,18 @@ export const CropService = {
         return query.trim() ? CatalogRepository.findByName(query) : [];
     },
 
-    suggestNextBlock(): string {
-        const items = CropRepository.findActive();
-        if (items.length === 0) return '1';
-        const last = items.reduce((a, b) =>
-            b.crop.createdAt > a.crop.createdAt || (b.crop.createdAt === a.crop.createdAt && b.crop.id > a.crop.id) ? b : a
-        );
-        const m = last.crop.block.trim().match(/^(.*?)(\d+)$/);
-        if (!m) return '';
-        let n = Number(m[2]);
-        do { n += 1; } while (isBlockTaken(m[1] + n));
-        return m[1] + n;
-    },
+        suggestNextBlock(): string {
+            const items = CropRepository.findActive();
+            if (items.length === 0) return '1';
+            const last = items.reduce((a, b) =>
+                b.crop.createdAt > a.crop.createdAt || (b.crop.createdAt === a.crop.createdAt && b.crop.id > a.crop.id) ? b : a
+            );
+            const m = last.crop.block.trim().match(/^(.*?)(\d+)$/);
+            if (!m) return '';
+            let n = 1;
+            while (isBlockTaken(m[1] + n)) n += 1;
+            return m[1] + n;
+        },
 
     addCrop(input: CropInput): { ok: true; crop: Crop } | { ok: false; errors: CropErrors } {
         const { errors, quantity } = validate(input);

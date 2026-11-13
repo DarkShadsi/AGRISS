@@ -1,19 +1,26 @@
 import { ReactNode } from 'react';
-import { KeyboardAvoidingView, Modal, Pressable, View } from 'react-native';
+import { KeyboardAvoidingView, Modal, Pressable, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AppText from './AppText';
 import AppButton from './AppButton';
 
 type PopupProps = { visible: boolean; onClose: () => void; children: ReactNode };
 
 export function Popup({ visible, onClose, children }: PopupProps) {
+    const insets = useSafeAreaInsets();
     return (
         <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose} statusBarTranslucent>
             <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-                <Pressable className="flex-1 bg-black/50 items-center justify-center px-5" onPress={onClose}>
-                    <Pressable className="w-full max-w-[420px] bg-surface rounded-3xl p-5" onPress={() => {}}>
+                <View
+                    className="flex-1 bg-black/50 items-center justify-center px-5"
+                    style={{ paddingTop: insets.top + 12, paddingBottom: insets.bottom + 12 }}
+                >
+                    {/* The tap-outside area sits behind the card, so it can close the popup without blocking scrolling. */}
+                    <Pressable accessibilityLabel="Close" style={StyleSheet.absoluteFill} onPress={onClose} />
+                    <View className="w-full max-w-[420px] bg-surface rounded-3xl p-5" style={{ maxHeight: '100%' }}>
                         {children}
-                    </Pressable>
-                </Pressable>
+                    </View>
+                </View>
             </KeyboardAvoidingView>
         </Modal>
     );
