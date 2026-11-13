@@ -6,13 +6,14 @@ import ScreenContainer from '../../../shared/components/ScreenContainer';
 import AppText from '../../../shared/components/AppText';
 import FabButton from '../../../shared/components/FabButton';
 import { MessagePopup, OptionsPopup } from '../../../shared/components/Popup';
+import { ConfirmPopup, UndoPopup } from '../../../shared/components/Dialogs';
 import { COLORS, FONT, SIZE } from '../../../shared/theme';
 import { CropService, type CropView } from '../services/CropService';
 import CropCard from './CropCard';
 import CropInfoPopup from './CropInfoPopup';
 import CropSortFilterBar from './CropSortFilterBar';
 import CropFilterPopup from './CropFilterPopup';
-import AddCropPopup from './AddCropPopup';
+import CropFormPopup from './CropFormPopup';
 import {
     DEFAULT_FILTER, DEFAULT_SORT, SORT_LABELS, applyView, describeView, naturalCompare,
     type CropFilter, type SortKey,
@@ -25,7 +26,10 @@ export default function CropsScreen() {
     const [filter, setFilter] = useState<CropFilter>(DEFAULT_FILTER);
     const [sortOpen, setSortOpen] = useState(false);
     const [filterOpen, setFilterOpen] = useState(false);
-    const [addOpen, setAddOpen] = useState(false);
+    const [formMode, setFormMode] = useState<'add' | 'edit' | null>(null);
+    const [editFor, setEditFor] = useState<CropView | null>(null);
+    const [deleteFor, setDeleteFor] = useState<CropView | null>(null);
+    const [undoId, setUndoId] = useState<number | null>(null);
     const [notice, setNotice] = useState<string | null>(null);
     const [menuFor, setMenuFor] = useState<CropView | null>(null);
     const [infoFor, setInfoFor] = useState<CropView | null>(null);
@@ -36,6 +40,24 @@ export default function CropsScreen() {
     const visible = applyView(crops, query, sort, filter);
     const blocks = [...new Set(crops.map((c) => c.block))].sort(naturalCompare);
     const filterActive = filter.type !== 'all' || filter.block !== null;
+
+    const confirmDelete = () => {
+        if (!deleteFor) return;
+        CropService.deleteCrop(deleteFor.id); // hides it now; really deleted after the Undo time
+        setUndoId(deleteFor.id);
+        setDeleteFor(null);
+        reload();
+    };
+    const undoDelete = () => {
+        if (undoId !== null) CropService.cancelPendingDelete(undoId);
+        setUndoId(null);
+        reload();
+    };
+    const finishDelete = useCallback(() => {
+        if (undoId !== null) CropService.commitDelete(undoId);
+        setUndoId(null);
+        reload();
+    }, [undoId, reload]);
 
     return (
         <ScreenContainer>
@@ -73,14 +95,32 @@ export default function CropsScreen() {
                 }
             />
 
-            <FabButton label="Add crop" onPress={() => setAddOpen(true)} />
+            <FabButton label="Add crop" onPress={() => setFormMode('add')} />
 
-            <AddCropPopup
-                visible={addOpen}
-                onClose={() => setAddOpen(false)}
-                onAdded={() => { reload(); setNotice('Crop has been added successfully!'); }}
+            <CropFormPopup
+                visible={formMode !== null}
+                mode={formMode ?? 'add'}
+                crop={editFor}
+                onClose={() => setFormMode(null)}
+                onSaved={(message) => { reload(); setNotice(message); }}
             />
             <MessagePopup visible={!!notice} message={notice ?? ''} onClose={() => setNotice(null)} />
+
+            <ConfirmPopup
+                visible={!!deleteFor}
+                title="Delete crop"
+                message={deleteFor ? `Are you sure you want to remove ${deleteFor.name} (Block ${deleteFor.block})?` : ''}
+                confirmLabel="Delete"
+                danger
+                onConfirm={confirmDelete}
+                onCancel={() => setDeleteFor(null)}
+            />
+            <UndoPopup
+                visible={undoId !== null}
+                message="Crop has been deleted successfully!"
+                onUndo={undoDelete}
+                onOkay={finishDelete}
+            />
 
             <OptionsPopup
                 visible={sortOpen}
@@ -106,8 +146,8 @@ export default function CropsScreen() {
                 onClose={() => setMenuFor(null)}
                 options={[
                     { label: 'Info', onPress: () => { setInfoFor(menuFor); setMenuFor(null); } },
-                    { label: 'Edit', onPress: () => setMenuFor(null) },                       // Part 4.5
-                    { label: 'Delete', variant: 'danger', onPress: () => setMenuFor(null) },  // Part 4.5
+                    { label: 'Edit', onPress: () => { setEditFor(menuFor); setFormMode('edit'); setMenuFor(null); } },
+                    { label: 'Delete', variant: 'danger', onPress: () => { setDeleteFor(menuFor); setMenuFor(null); } },
                 ]}
             />
             <CropInfoPopup crop={infoFor} onClose={() => setInfoFor(null)} />

@@ -84,7 +84,7 @@ export const CropService = {
     getCrops(): CropView[] {
         const today = todayString();
         return CropRepository.findActive()
-            .filter((item) => !pendingDeletes.has(item.crop.id)) // hidden while the Undo message is showing
+            .filter((item) => !pendingDeletes.has(item.crop.id))
             .map((item) => toView(item, today));
     },
 
@@ -151,7 +151,7 @@ export const CropService = {
 
     deleteCrop(id: number): void {
         if (pendingDeletes.has(id)) return;
-        pendingDeletes.set(id, setTimeout(() => CropService.commitDelete(id), UNDO_DURATION_MS));
+        pendingDeletes.set(id, setTimeout(() => CropService.commitDelete(id), UNDO_DURATION_MS + 1000));
     },
 
     cancelPendingDelete(id: number): void {

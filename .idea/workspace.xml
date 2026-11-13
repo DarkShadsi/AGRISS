@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(ui): Add crop functionality">
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="fix(ui): popup scrolling, suggestions style, smallest free block">
+      <change afterPath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/AddCropPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/AddCropPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Popup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/AddCropPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropFormPopup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,61 +40,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.8448193881857191" />
-      <entry key="MS500" value="2.6719162099331113" />
-      <entry key="S2" value="2.9119562798026966" />
-      <entry key="S5" value="3.052908304681863" />
-      <entry key="S10" value="3.7029588102657884" />
-      <entry key="S30" value="5.946916493669319" />
-      <entry key="S60" value="7.20483419890413" />
-      <entry key="M2" value="8.022768160576515" />
-      <entry key="M5" value="8.61957794661416" />
-      <entry key="M10" value="9.268617663401177" />
-      <entry key="M15" value="10.253977066941205" />
-      <entry key="M30" value="13.91825779218665" />
-      <entry key="H1" value="23.03651727052476" />
-      <entry key="H2" value="66.46376006355256" />
-      <entry key="H4" value="197.73688523235998" />
-      <entry key="D1" value="605.0835419187409" />
-      <entry key="W1" value="741.304602892121" />
+      <entry key="MS100" value="1.81623122277061E-10" />
+      <entry key="MS500" value="0.018151035276894472" />
+      <entry key="S2" value="0.9818872734094966" />
+      <entry key="S5" value="2.3205259956377753" />
+      <entry key="S10" value="3.547638253392311" />
+      <entry key="S30" value="6.312444680953148" />
+      <entry key="S60" value="7.8189806726771085" />
+      <entry key="M2" value="8.807436520151432" />
+      <entry key="M5" value="9.52691662731751" />
+      <entry key="M10" value="10.21895807238119" />
+      <entry key="M15" value="11.217585959796516" />
+      <entry key="M30" value="14.893984944595" />
+      <entry key="H1" value="24.016829768461474" />
+      <entry key="H2" value="67.43594074410098" />
+      <entry key="H4" value="198.69580584710394" />
+      <entry key="D1" value="606.062642806726" />
+      <entry key="W1" value="742.3009459471537" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="1.1597509771465897E-231" />
-      <entry key="S60" value="3.530693410225565E-116" />
-      <entry key="M2" value="2.4604393649336163E-58" />
-      <entry key="M5" value="1.8738240574382622E-23" />
-      <entry key="M10" value="1.0043513557766978E-11" />
-      <entry key="M15" value="9.77986109025795E-8" />
-      <entry key="M30" value="0.0018666092223959632" />
-      <entry key="H1" value="0.4553930409417209" />
-      <entry key="H2" value="8.199064614517917" />
-      <entry key="H4" value="35.804370951564295" />
-      <entry key="D1" value="123.8821101747221" />
-      <entry key="W1" value="153.4269530963868" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0000000000099938" />
+      <entry key="M15" value="1.0000000974752665" />
+      <entry key="M30" value="1.0018635209520965" />
+      <entry key="H1" value="1.4550161653284885" />
+      <entry key="H2" value="9.195671208377476" />
+      <entry key="H4" value="36.79696087785769" />
+      <entry key="D1" value="124.87783669863967" />
+      <entry key="W1" value="154.42619699031695" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.7160088334478119" />
-      <entry key="MS500" value="2.6282405760509704" />
-      <entry key="S2" value="2.899644615308788" />
-      <entry key="S5" value="3.0461692914868514" />
-      <entry key="S10" value="3.6928862869812527" />
-      <entry key="S30" value="5.935266517691287" />
-      <entry key="S60" value="7.196629769043747" />
-      <entry key="M2" value="8.017886781998588" />
-      <entry key="M5" value="8.617398142723646" />
-      <entry key="M10" value="9.267431758514356" />
-      <entry key="M15" value="10.253109091959383" />
-      <entry key="M30" value="13.919465737411308" />
-      <entry key="H1" value="23.490841322188253" />
-      <entry key="H2" value="74.65917005816976" />
-      <entry key="H4" value="233.5343946619252" />
-      <entry key="D1" value="728.9619162397961" />
-      <entry key="W1" value="894.7308993850891" />
+      <entry key="MS100" value="2.1968632024437782E-8" />
+      <entry key="MS500" value="0.0387513864502091" />
+      <entry key="S2" value="1.2927244590584923" />
+      <entry key="S5" value="2.9320540940531057" />
+      <entry key="S10" value="4.321685869853016" />
+      <entry key="S30" value="7.222277274056904" />
+      <entry key="S60" value="8.77044377002321" />
+      <entry key="M2" value="9.78207401598563" />
+      <entry key="M5" value="10.516460672505103" />
+      <entry key="M10" value="11.213619572232007" />
+      <entry key="M15" value="12.213946397238733" />
+      <entry key="M30" value="15.89380259005495" />
+      <entry key="H1" value="25.470083410198818" />
+      <entry key="H2" value="76.6276115685264" />
+      <entry key="H4" value="235.4857329679322" />
+      <entry key="D1" value="730.9367148357254" />
+      <entry key="W1" value="896.7264822022526" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -151,6 +154,7 @@
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\crops\ui" />
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\tasks\ui" />
     </key>
   </component>
@@ -279,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794452603292</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fix(ui): popup scrolling, suggestions style, smallest free block">
+      <option name="closed" value="true" />
+      <created>1794534990821</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1794534990822</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -307,6 +319,7 @@
     <MESSAGE value="feat(crops): My Crops list with options and info popups" />
     <MESSAGE value="feat(ui): block filter dropdown" />
     <MESSAGE value="feat(ui): Add crop functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(ui): Add crop functionality" />
+    <MESSAGE value="fix(ui): popup scrolling, suggestions style, smallest free block" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(ui): popup scrolling, suggestions style, smallest free block" />
   </component>
 </project>
