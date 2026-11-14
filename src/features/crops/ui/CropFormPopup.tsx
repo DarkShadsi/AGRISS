@@ -142,7 +142,7 @@ export default function CropFormPopup({ visible, mode, crop, onClose, onSaved }:
                         keyboardType="number-pad"
                         error={errors.quantity}
                     />
-                    <DateField label="Planting date" value={plantingDate} onChange={setPlantingDate} error={errors.plantingDate} />
+                    <DateField label="Planting date" value={plantingDate} onChange={setPlantingDate} error={errors.plantingDate} maxDate={todayString()} />
                     <TextField
                         label="Unit for harvest"
                         value={unit}

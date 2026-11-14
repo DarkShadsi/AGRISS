@@ -1,4 +1,4 @@
-import { and, count, eq, isNotNull, lt, max, min } from 'drizzle-orm';
+import { and, asc, count, desc, eq, isNotNull, lt, max, min } from 'drizzle-orm';
 import { db } from '../../../core/database/client';
 import { tasks } from '../../../core/database/schema';
 
@@ -78,5 +78,56 @@ export const TaskRepository = {
             .set({ block })
             .where(and(eq(tasks.cropId, cropId), eq(tasks.source, 'auto'), eq(tasks.status, 'pending')))
             .run();
+    },
+
+    takePendingTasks(cropId: number): Task[] {
+        const rows = db
+            .select()
+            .from(tasks)
+            .where(and(eq(tasks.cropId, cropId), eq(tasks.status, 'pending')))
+            .all();
+        db.delete(tasks).where(and(eq(tasks.cropId, cropId), eq(tasks.status, 'pending'))).run();
+        return rows;
+    },
+
+    findPending(): Task[] {
+        return db
+            .select()
+            .from(tasks)
+            .where(eq(tasks.status, 'pending'))
+            .orderBy(asc(tasks.scheduledDate), asc(tasks.id))
+            .all();
+    },
+
+    findCompleted(): Task[] {
+        return db
+            .select()
+            .from(tasks)
+            .where(eq(tasks.status, 'completed'))
+            .orderBy(desc(tasks.completedAt), desc(tasks.id))
+            .all();
+    },
+
+    findById(id: number): Task | undefined {
+        return db.select().from(tasks).where(eq(tasks.id, id)).get();
+    },
+
+    insert(row: Omit<NewTask, 'id'>): Task {
+        return db.insert(tasks).values(row).returning().get();
+    },
+
+    update(
+        id: number,
+        data: Partial<Pick<NewTask, 'title' | 'block' | 'scheduledDate' | 'status' | 'completedAt'>>
+    ): void {
+        db.update(tasks).set(data).where(eq(tasks.id, id)).run();
+    },
+
+    delete(id: number): void {
+        db.delete(tasks).where(eq(tasks.id, id)).run();
+    },
+
+    restore(row: Task): void {
+        db.insert(tasks).values(row).run();
     },
 };

@@ -1,10 +1,9 @@
 import { db } from '../../../core/database/client';
 import { CatalogRepository, type CatalogCrop } from '../data/CatalogRepository';
 import { CropRepository, cropName, type Crop, type CropWithCatalog } from '../data/CropRepository';
-import { TaskRepository } from '../../tasks/data/TaskRepository';
+import { TaskRepository, type Task } from '../../tasks/data/TaskRepository';
 import { TaskService } from '../../tasks/services/TaskService';
 import { addDays, diffInDays, parseDate, toDateString, todayString } from '../../../shared/utils/dates';
-import { UNDO_DURATION_MS } from '../../../shared/theme';
 
 export type CropInput = {
     name: string;
@@ -14,7 +13,6 @@ export type CropInput = {
     plantingDate: string; // YYYY-MM-DD
 };
 export type CropErrors = Partial<Record<'name' | 'block' | 'quantity' | 'plantingDate', string>>;
-
 export type CropView = {
     id: number;
     name: string;
@@ -27,6 +25,7 @@ export type CropView = {
     harvestInDays: number | null;
     fertilizeInDays: number | null;
 };
+export type DeletedCrop = { cropId: number; tasks: Task[] };
 
 function validate(input: CropInput): { errors: CropErrors; quantity: number } {
     const errors: CropErrors = {};
@@ -37,6 +36,8 @@ function validate(input: CropInput): { errors: CropErrors; quantity: number } {
     const d = input.plantingDate;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(d) || toDateString(parseDate(d)) !== d) {
         errors.plantingDate = 'Please choose the planting date.';
+    } else if (d > todayString()) {
+        errors.plantingDate = 'The planting date cannot be in the future.';
     }
     return { errors, quantity };
 }
@@ -78,13 +79,10 @@ function toView(item: CropWithCatalog, today: string): CropView {
     };
 }
 
-const pendingDeletes = new Map<number, ReturnType<typeof setTimeout>>();
-
 export const CropService = {
     getCrops(): CropView[] {
         const today = todayString();
         return CropRepository.findActive()
-            .filter((item) => !pendingDeletes.has(item.crop.id))
             .map((item) => toView(item, today));
     },
 
@@ -92,7 +90,7 @@ export const CropService = {
         return query.trim() ? CatalogRepository.findByName(query) : [];
     },
 
-        suggestNextBlock(): string {
+    suggestNextBlock(): string {
             const items = CropRepository.findActive();
             if (items.length === 0) return '1';
             const last = items.reduce((a, b) =>
@@ -149,22 +147,19 @@ export const CropService = {
         return { ok: true };
     },
 
-    deleteCrop(id: number): void {
-        if (pendingDeletes.has(id)) return;
-        pendingDeletes.set(id, setTimeout(() => CropService.commitDelete(id), UNDO_DURATION_MS + 1000));
-    },
-
-    cancelPendingDelete(id: number): void {
-        const timer = pendingDeletes.get(id);
-        if (timer) clearTimeout(timer);
-        pendingDeletes.delete(id);
-    },
-
-    commitDelete(id: number): void {
-        CropService.cancelPendingDelete(id);
+    deleteCrop(id: number): DeletedCrop {
+        let removed: Task[] = [];
         db.transaction(() => {
+            removed = TaskRepository.takePendingTasks(id);
             CropRepository.softDelete(id);
-            TaskRepository.deletePendingTasks(id);
+        });
+        return { cropId: id, tasks: removed };
+    },
+
+    restoreCrop(deleted: DeletedCrop): void {
+        db.transaction(() => {
+            CropRepository.restore(deleted.cropId);
+            TaskRepository.insertTasks(deleted.tasks.map(({ id, ...rest }) => rest));
         });
     },
 };

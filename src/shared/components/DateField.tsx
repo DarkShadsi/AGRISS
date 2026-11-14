@@ -5,13 +5,22 @@ import AppText from './AppText';
 import { COLORS } from '../theme';
 import { formatLongDate, parseDate, toDateString } from '../utils/dates';
 
-type Props = { label: string; value: string; onChange: (value: string) => void; error?: string };
+type Props = {
+    label: string;
+    value: string;
+    onChange: (value: string) => void;
+    error?: string;
+    minDate?: string;
+    maxDate?: string;
+};
 
-export default function DateField({ label, value, onChange, error }: Props) {
+export default function DateField({ label, value, onChange, error, minDate, maxDate }: Props) {
     const open = () => {
         DateTimePickerAndroid.open({
             value: parseDate(value),
             mode: 'date',
+            minimumDate: minDate ? parseDate(minDate) : undefined,
+            maximumDate: maxDate ? parseDate(maxDate) : undefined,
             onChange: (event, date) => {
                 if (event.type === 'set' && date) onChange(toDateString(date));
             },

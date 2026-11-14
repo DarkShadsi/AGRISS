@@ -8,7 +8,7 @@ import FabButton from '../../../shared/components/FabButton';
 import { MessagePopup, OptionsPopup } from '../../../shared/components/Popup';
 import { ConfirmPopup, UndoPopup } from '../../../shared/components/Dialogs';
 import { COLORS, FONT, SIZE } from '../../../shared/theme';
-import { CropService, type CropView } from '../services/CropService';
+import { CropService, type CropView, type DeletedCrop } from '../services/CropService';
 import CropCard from './CropCard';
 import CropInfoPopup from './CropInfoPopup';
 import CropSortFilterBar from './CropSortFilterBar';
@@ -29,7 +29,7 @@ export default function CropsScreen() {
     const [formMode, setFormMode] = useState<'add' | 'edit' | null>(null);
     const [editFor, setEditFor] = useState<CropView | null>(null);
     const [deleteFor, setDeleteFor] = useState<CropView | null>(null);
-    const [undoId, setUndoId] = useState<number | null>(null);
+    const [deleted, setDeleted] = useState<DeletedCrop | null>(null);
     const [notice, setNotice] = useState<string | null>(null);
     const [menuFor, setMenuFor] = useState<CropView | null>(null);
     const [infoFor, setInfoFor] = useState<CropView | null>(null);
@@ -43,21 +43,16 @@ export default function CropsScreen() {
 
     const confirmDelete = () => {
         if (!deleteFor) return;
-        CropService.deleteCrop(deleteFor.id); // hides it now; really deleted after the Undo time
-        setUndoId(deleteFor.id);
+        setDeleted(CropService.deleteCrop(deleteFor.id));
         setDeleteFor(null);
         reload();
     };
     const undoDelete = () => {
-        if (undoId !== null) CropService.cancelPendingDelete(undoId);
-        setUndoId(null);
+        if (deleted) CropService.restoreCrop(deleted);
+        setDeleted(null);
         reload();
     };
-    const finishDelete = useCallback(() => {
-        if (undoId !== null) CropService.commitDelete(undoId);
-        setUndoId(null);
-        reload();
-    }, [undoId, reload]);
+    const closeDeleteMessage = () => setDeleted(null);
 
     return (
         <ScreenContainer>
@@ -116,10 +111,10 @@ export default function CropsScreen() {
                 onCancel={() => setDeleteFor(null)}
             />
             <UndoPopup
-                visible={undoId !== null}
+                visible={deleted !== null}
                 message="Crop has been deleted successfully!"
                 onUndo={undoDelete}
-                onOkay={finishDelete}
+                onOkay={closeDeleteMessage}
             />
 
             <OptionsPopup

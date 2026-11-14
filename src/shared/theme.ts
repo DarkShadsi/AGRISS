@@ -15,4 +15,3 @@ export const SIZE = { display: 32, heading: 24, subheading: 20, body: 18, label:
 
 export const TEXT_SCALE = 1;          // a future in-app text-size setting changes this
 export const MIN_TOUCH = 56;          // minimum button height in dp
-export const UNDO_DURATION_MS = 5000; // Undo message stays 5 seconds
