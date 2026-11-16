@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(crops): edit and delete crops with undo">
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/naturalCompare.ts" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): task rules, list sections, and undo">
+      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/CategoryBadge.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/components/SegmentedControl.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropFormPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropFormPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/cropListOptions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/cropListOptions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/DateField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/DateField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,61 +38,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.5690933517020782" />
-      <entry key="MS500" value="2.9193058881696174" />
-      <entry key="S2" value="5.232143158012816" />
-      <entry key="S5" value="7.005295374343548" />
-      <entry key="S10" value="7.894432377548321" />
-      <entry key="S30" value="8.604187310103743" />
-      <entry key="S60" value="8.798456896439085" />
-      <entry key="M2" value="8.898334546854404" />
-      <entry key="M5" value="9.023533919541963" />
-      <entry key="M10" value="9.81994116152834" />
-      <entry key="M15" value="11.107766547098892" />
-      <entry key="M30" value="15.470193804799871" />
-      <entry key="H1" value="24.834503623466755" />
-      <entry key="H2" value="63.760718931630656" />
-      <entry key="H4" value="188.0532746473936" />
-      <entry key="D1" value="604.6393098830079" />
-      <entry key="W1" value="749.4635891926564" />
+      <entry key="MS100" value="1.426317445883994" />
+      <entry key="MS500" value="1.8461020423290655" />
+      <entry key="S2" value="3.00813104842162" />
+      <entry key="S5" value="7.257700436374879" />
+      <entry key="S10" value="12.594936985090179" />
+      <entry key="S30" value="20.026630712359815" />
+      <entry key="S60" value="22.764545012055823" />
+      <entry key="M2" value="24.314286666336326" />
+      <entry key="M5" value="25.370702191067227" />
+      <entry key="M10" value="26.47663343963117" />
+      <entry key="M15" value="27.862771033864977" />
+      <entry key="M30" value="32.32099368403708" />
+      <entry key="H1" value="41.73144648663348" />
+      <entry key="H2" value="80.6501731061912" />
+      <entry key="H4" value="204.90378139965873" />
+      <entry key="D1" value="621.5617488508244" />
+      <entry key="W1" value="766.4498941246197" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="6.478143518099827E-131" />
-      <entry key="S10" value="8.048691519806074E-66" />
-      <entry key="S30" value="2.0040494222069361E-22" />
-      <entry key="S60" value="1.4156445253688999E-11" />
-      <entry key="M2" value="3.7625051832109136E-6" />
-      <entry key="M5" value="0.006763801329551338" />
-      <entry key="M10" value="0.08224233295381725" />
-      <entry key="M15" value="0.1891168925697156" />
-      <entry key="M30" value="0.43568609961566945" />
-      <entry key="H1" value="0.9595119515531181" />
-      <entry key="H2" value="7.46749120491158" />
-      <entry key="H4" value="33.1594710050899" />
-      <entry key="D1" value="122.73016189845562" />
-      <entry key="W1" value="154.04396270537782" />
+      <entry key="S5" value="7.297025650511499E-132" />
+      <entry key="S10" value="2.701300733074994E-66" />
+      <entry key="S30" value="1.3927002241154333E-22" />
+      <entry key="S60" value="1.180127206751643E-11" />
+      <entry key="M2" value="3.435297959059216E-6" />
+      <entry key="M5" value="0.006522074638377389" />
+      <entry key="M10" value="0.08075936254396611" />
+      <entry key="M15" value="0.18683660358380993" />
+      <entry key="M30" value="0.4330514772912376" />
+      <entry key="H1" value="0.9566064366866607" />
+      <entry key="H2" value="7.456176412642917" />
+      <entry key="H4" value="33.13433975637535" />
+      <entry key="D1" value="122.71465432960227" />
+      <entry key="W1" value="154.04118195136735" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5051022471899071" />
-      <entry key="MS500" value="2.8870211365833507" />
-      <entry key="S2" value="5.170545262581902" />
-      <entry key="S5" value="6.960042831618825" />
-      <entry key="S10" value="7.86652442642705" />
-      <entry key="S30" value="8.593471279732157" />
-      <entry key="S60" value="8.792905031843876" />
-      <entry key="M2" value="8.89551243919" />
-      <entry key="M5" value="9.029084546073626" />
-      <entry key="M10" value="9.901171178327623" />
-      <entry key="M15" value="11.295812487319191" />
-      <entry key="M30" value="15.904798659856572" />
-      <entry key="H1" value="25.792757448552685" />
-      <entry key="H2" value="71.22491363262343" />
-      <entry key="H4" value="221.20638323563807" />
-      <entry key="D1" value="727.3657678622639" />
-      <entry key="W1" value="903.506892227518" />
+      <entry key="MS100" value="1.3587641962220698" />
+      <entry key="MS500" value="1.8282599560013102" />
+      <entry key="S2" value="2.9931350475749663" />
+      <entry key="S5" value="7.214281109135013" />
+      <entry key="S10" value="12.541923657449718" />
+      <entry key="S30" value="19.99311872400806" />
+      <entry key="S60" value="22.744788127848942" />
+      <entry key="M2" value="24.303556324113156" />
+      <entry key="M5" value="25.372642348290377" />
+      <entry key="M10" value="26.55466677985923" />
+      <entry key="M15" value="28.0473891393839" />
+      <entry key="M30" value="32.752387300936775" />
+      <entry key="H1" value="42.68650629541731" />
+      <entry key="H2" value="88.10291167031752" />
+      <entry key="H4" value="238.03169034544553" />
+      <entry key="D1" value="744.2726875202144" />
+      <entry key="W1" value="920.4904146730761" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -161,57 +155,6 @@
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\crops\ui" />
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\tasks\ui" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="AGRISS" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="AGRISS" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="AGRISS" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="AGRISS" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -341,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794537330088</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat(tasks): task rules, list sections, and undo">
+      <option name="closed" value="true" />
+      <created>1794641660210</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1794641660210</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -371,6 +322,7 @@
     <MESSAGE value="feat(ui): Add crop functionality" />
     <MESSAGE value="fix(ui): popup scrolling, suggestions style, smallest free block" />
     <MESSAGE value="feat(crops): edit and delete crops with undo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(crops): edit and delete crops with undo" />
+    <MESSAGE value="feat(tasks): task rules, list sections, and undo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): task rules, list sections, and undo" />
   </component>
 </project>
