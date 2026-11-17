@@ -10,13 +10,14 @@ import AppText from '../../../shared/components/AppText';
 import AppButton from '../../../shared/components/AppButton';
 import FabButton from '../../../shared/components/FabButton';
 import SegmentedControl from '../../../shared/components/SegmentedControl';
-import { OptionsPopup, type PopupOption } from '../../../shared/components/Popup';
+import { OptionsPopup } from '../../../shared/components/Popup';
 import { COLORS } from '../../../shared/theme';
 import { addDays, todayString } from '../../../shared/utils/dates';
 import { CropService } from '../../crops/services/CropService';
 import { TaskRepository } from '../data/TaskRepository';
-import { TaskService, type TaskCategory, type TaskSection, type TaskView } from '../services/TaskService';
+import { TaskService, type TaskCategory, type TaskSection } from '../services/TaskService';
 import TaskCard from './TaskCard';
+import { useTaskActions } from './useTaskActions';
 
 type Filter = 'all' | TaskCategory;
 const FILTERS: { value: Filter; label: string }[] = [
@@ -32,10 +33,11 @@ export default function TasksScreen() {
     const [filter, setFilter] = useState<Filter>('all');
     const [filterOpen, setFilterOpen] = useState(false);
     const [sections, setSections] = useState<TaskSection[]>([]);
-    const [menuFor, setMenuFor] = useState<TaskView | null>(null);
 
     const reload = useCallback(() => setSections(TaskService.getListSections(filter)), [filter]);
     useFocusEffect(reload);
+
+    const actions = useTaskActions({ onChanged: reload });
 
     // TEMPORARY test helpers (shown only while testing in Expo Go)
     const addSamples = () => {
@@ -56,15 +58,6 @@ export default function TasksScreen() {
         db.delete(tasksTable).where(like(tasksTable.title, 'ZZ%')).run();
         reload();
     };
-
-    const closeMenu = () => setMenuFor(null);
-    const menuOptions: PopupOption[] = menuFor
-        ? [
-            ...(menuFor.canComplete ? [{ label: 'Postpone', onPress: closeMenu }] : []), // Part 5.3
-            { label: 'Edit', onPress: closeMenu },                                      // Part 5.4
-            { label: 'Delete', variant: 'danger' as const, onPress: closeMenu },         // Part 5.3
-        ]
-        : [];
 
     return (
         <ScreenContainer>
@@ -138,7 +131,9 @@ export default function TasksScreen() {
                             {section.title}
                         </AppText>
                     )}
-                    renderItem={({ item }) => <TaskCard task={item} onToggle={() => {}} onInfo={() => setMenuFor(item)} />}
+                    renderItem={({ item }) => (
+                        <TaskCard task={item} onToggle={() => actions.complete(item)} onInfo={() => actions.openMenu(item)} />
+                    )}
                     ListEmptyComponent={
                         <AppText tone="muted" style={{ textAlign: 'center', marginTop: 32 }}>
                             No upcoming tasks. Add a crop to get automatic tasks, or tap + to add your own.
@@ -159,7 +154,7 @@ export default function TasksScreen() {
                     onPress: () => { setFilter(f.value); setFilterOpen(false); },
                 }))}
             />
-            <OptionsPopup visible={!!menuFor} title={menuFor?.label} options={menuOptions} onClose={closeMenu} />
+            {actions.dialogs}
         </ScreenContainer>
     );
 }
