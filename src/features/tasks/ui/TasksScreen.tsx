@@ -19,6 +19,7 @@ import { TaskService, type TaskCategory, type TaskSection } from '../services/Ta
 import TaskCard from './TaskCard';
 import { useTaskActions } from './useTaskActions';
 import { useTaskForm } from './useTaskForm';
+import TaskCalendar from './TaskCalendar';
 
 type Filter = 'all' | TaskCategory;
 const FILTERS: { value: Filter; label: string }[] = [
@@ -35,7 +36,11 @@ export default function TasksScreen() {
     const [filterOpen, setFilterOpen] = useState(false);
     const [sections, setSections] = useState<TaskSection[]>([]);
 
-    const reload = useCallback(() => setSections(TaskService.getListSections(filter)), [filter]);
+    const [version, setVersion] = useState(0);
+    const reload = useCallback(() => {
+        setSections(TaskService.getListSections(filter));
+        setVersion((v) => v + 1);
+    }, [filter]);
     useFocusEffect(reload);
 
     const taskForm = useTaskForm({ onChanged: reload });
@@ -115,7 +120,7 @@ export default function TasksScreen() {
             {tab === 'log' ? (
                 <AppText tone="muted" style={{ textAlign: 'center', margin: 32 }}>The Activity log comes in Part 5.6.</AppText>
             ) : view === 'calendar' ? (
-                <AppText tone="muted" style={{ textAlign: 'center', margin: 32 }}>The Calendar comes in Part 5.5.</AppText>
+                <TaskCalendar category={filter} refreshKey={version} />
             ) : (
                 <SectionList
                     sections={sections.map((s) => ({ key: s.key, title: s.title, data: s.tasks }))}

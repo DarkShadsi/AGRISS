@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): complete, postpone, delete with undo">
-      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskFormPopup.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/useTaskForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): add and edit task form">
+      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskCalendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794879831707</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat(tasks): add and edit task form">
+      <option name="closed" value="true" />
+      <created>1795089771589</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1795089771589</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -367,6 +374,7 @@
     <MESSAGE value="feat(tasks): task rules, list sections, and undo" />
     <MESSAGE value="style(tasks): single-row toolbar" />
     <MESSAGE value="feat(tasks): complete, postpone, delete with undo" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): complete, postpone, delete with undo" />
+    <MESSAGE value="feat(tasks): add and edit task form" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): add and edit task form" />
   </component>
 </project>

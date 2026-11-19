@@ -226,6 +226,22 @@ export const TaskService = {
         return sections;
     },
 
+    getMonthViews(year: number, month: number, category: 'all' | TaskCategory = 'all'): TaskView[] {
+        const today = todayString();
+        const lookup = buildLookup();
+        const from = toDateString(new Date(year, month, 1));
+        const to = toDateString(new Date(year, month + 1, 0));
+        return TaskRepository.findPending()
+            .filter(
+                (t) =>
+                    t.scheduledDate >= from &&
+                    t.scheduledDate <= to &&
+                    (category === 'all' || t.category === category)
+            )
+            .map((t) => toView(t, today, lookup))
+            .sort(compareViews);
+    },
+
     addTask(input: TaskInput): { ok: true; task: Task } | { ok: false; errors: TaskErrors } {
         const errors = validateTask(input, todayString());
         if (Object.keys(errors).length > 0) return { ok: false, errors };
