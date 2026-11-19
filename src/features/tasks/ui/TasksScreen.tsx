@@ -18,6 +18,7 @@ import { TaskRepository } from '../data/TaskRepository';
 import { TaskService, type TaskCategory, type TaskSection } from '../services/TaskService';
 import TaskCard from './TaskCard';
 import { useTaskActions } from './useTaskActions';
+import { useTaskForm } from './useTaskForm';
 
 type Filter = 'all' | TaskCategory;
 const FILTERS: { value: Filter; label: string }[] = [
@@ -37,7 +38,8 @@ export default function TasksScreen() {
     const reload = useCallback(() => setSections(TaskService.getListSections(filter)), [filter]);
     useFocusEffect(reload);
 
-    const actions = useTaskActions({ onChanged: reload });
+    const taskForm = useTaskForm({ onChanged: reload });
+    const actions = useTaskActions({ onChanged: reload, onEdit: taskForm.openEdit });
 
     // TEMPORARY test helpers (shown only while testing in Expo Go)
     const addSamples = () => {
@@ -142,7 +144,7 @@ export default function TasksScreen() {
                 />
             )}
 
-            <FabButton label="Add task" onPress={() => { /* Part 5.4 */ }} />
+            <FabButton label="Add task" onPress={taskForm.openAdd} />
 
             <OptionsPopup
                 visible={filterOpen}
@@ -154,6 +156,7 @@ export default function TasksScreen() {
                     onPress: () => { setFilter(f.value); setFilterOpen(false); },
                 }))}
             />
+            {taskForm.dialogs}
             {actions.dialogs}
         </ScreenContainer>
     );

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="style(tasks): single-row toolbar">
-      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/useTaskActions.tsx" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): complete, postpone, delete with undo">
+      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskFormPopup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/useTaskForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" afterDir="false" />
     </list>
@@ -154,6 +155,33 @@
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\tasks\ui" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="AGRISS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="AGRISS" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="AGRISS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -298,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1794788939643</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat(tasks): complete, postpone, delete with undo">
+      <option name="closed" value="true" />
+      <created>1794879831707</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1794879831707</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -330,6 +366,7 @@
     <MESSAGE value="feat(crops): edit and delete crops with undo" />
     <MESSAGE value="feat(tasks): task rules, list sections, and undo" />
     <MESSAGE value="style(tasks): single-row toolbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="style(tasks): single-row toolbar" />
+    <MESSAGE value="feat(tasks): complete, postpone, delete with undo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): complete, postpone, delete with undo" />
   </component>
 </project>
