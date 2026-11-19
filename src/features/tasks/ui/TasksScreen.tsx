@@ -20,6 +20,7 @@ import TaskCard from './TaskCard';
 import { useTaskActions } from './useTaskActions';
 import { useTaskForm } from './useTaskForm';
 import TaskCalendar from './TaskCalendar';
+import ActivityLog from './ActivityLog';
 
 type Filter = 'all' | TaskCategory;
 const FILTERS: { value: Filter; label: string }[] = [
@@ -118,7 +119,7 @@ export default function TasksScreen() {
             </View>
 
             {tab === 'log' ? (
-                <AppText tone="muted" style={{ textAlign: 'center', margin: 32 }}>The Activity log comes in Part 5.6.</AppText>
+                <ActivityLog refreshKey={version} />
             ) : view === 'calendar' ? (
                 <TaskCalendar category={filter} refreshKey={version} />
             ) : (

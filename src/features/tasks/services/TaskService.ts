@@ -110,6 +110,7 @@ export type TaskView = {
     canComplete: boolean;    // due today or overdue
 };
 
+export type LogSort = 'newest' | 'oldest';
 export type TaskSection = { key: string; title: string; tasks: TaskView[] };
 export type TaskInput = { title: string; block: string | null; scheduledDate: string };
 export type TaskErrors = Partial<Record<'title' | 'scheduledDate', string>>;
@@ -182,6 +183,13 @@ function validateTask(input: TaskInput, today: string): TaskErrors {
         errors.scheduledDate = 'The date must be today or later.';
     }
     return errors;
+}
+
+function logDayTitle(day: string, today: string): string {
+    const d = diffInDays(day, today);
+    if (d === 0) return 'Today';
+    if (d === 1) return 'Yesterday';
+    return formatLongDate(day);
 }
 
 export const TaskService = {
@@ -299,5 +307,35 @@ export const TaskService = {
         if (u.kind === 'complete') TaskRepository.update(u.id, { status: 'pending', completedAt: null });
         else if (u.kind === 'postpone') TaskRepository.update(u.id, { scheduledDate: u.previousDate });
         else TaskRepository.restore(u.task);
+    },
+
+    /** Finished tasks, grouped by the day they were completed. */
+    getActivityLog(
+        opts: { sort?: LogSort; category?: 'all' | TaskCategory; block?: string | null } = {}
+    ): TaskSection[] {
+        const { sort = 'newest', category = 'all', block = null } = opts;
+        const today = todayString();
+        const lookup = buildLookup();
+        let rows = TaskRepository.findCompleted().filter(
+            (t) => (category === 'all' || t.category === category) && (block === null || t.block === block)
+        );
+        if (sort === 'oldest') rows = [...rows].reverse();
+
+        const sections: TaskSection[] = [];
+        for (const t of rows) {
+            const day = toDateString(new Date(t.completedAt ?? Date.now()));
+            const view = toView(t, today, lookup);
+            const last = sections[sections.length - 1];
+            if (last && last.key === day) last.tasks.push(view);
+            else sections.push({ key: day, title: logDayTitle(day, today), tasks: [view] });
+        }
+        return sections;
+    },
+
+    /** Blocks that appear in finished tasks (for the log's block filter). */
+    getLogBlocks(): string[] {
+        const blocks = new Set<string>();
+        for (const t of TaskRepository.findCompleted()) if (t.block) blocks.add(t.block);
+        return [...blocks].sort(naturalCompare);
     },
 };
