@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -26,11 +26,16 @@ export default function TaskCalendar({ category, refreshKey }: Props) {
     const [views, setViews] = useState<TaskView[]>([]);
     const [dayOpen, setDayOpen] = useState<string | null>(null);
 
-    const load = useCallback(
-        () => setViews(TaskService.getMonthViews(year, month, category)),
-        [year, month, category, refreshKey]
+    // Reload when the month, the filter, or the screen's refresh counter changes, and when the tab is focused again.
+    const [focusTick, setFocusTick] = useState(0);
+    useFocusEffect(
+        useCallback(() => {
+            setFocusTick((t) => t + 1);
+        }, [])
     );
-    useFocusEffect(load);
+    useEffect(() => {
+        setViews(TaskService.getMonthViews(year, month, category));
+    }, [year, month, category, refreshKey, focusTick]);
 
     const shift = (delta: number) => {
         const d = new Date(year, month + delta, 1);

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ScrollView, SectionList, View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -45,11 +45,16 @@ export default function ActivityLog({ refreshKey }: { refreshKey: number }) {
     const [sections, setSections] = useState<TaskSection[]>([]);
     const [blocks, setBlocks] = useState<string[]>([]);
 
-    const load = useCallback(() => {
+    const [focusTick, setFocusTick] = useState(0);
+    useFocusEffect(
+        useCallback(() => {
+            setFocusTick((t) => t + 1);
+        }, [])
+    );
+    useEffect(() => {
         setSections(TaskService.getActivityLog({ sort, category, block }));
         setBlocks(TaskService.getLogBlocks());
-    }, [sort, category, block, refreshKey]);
-    useFocusEffect(load);
+    }, [sort, category, block, refreshKey, focusTick]);
 
     const filterActive = category !== 'all' || block !== null;
     const summary: string[] = [];

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): add and edit task form">
-      <change afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskCalendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="feat(tasks): activity log">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/ActivityLog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/ActivityLog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TaskCalendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskCalendar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,61 +36,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.426317445883994" />
-      <entry key="MS500" value="1.8461020423290655" />
-      <entry key="S2" value="3.00813104842162" />
-      <entry key="S5" value="7.257700436374879" />
-      <entry key="S10" value="12.594936985090179" />
-      <entry key="S30" value="20.026630712359815" />
-      <entry key="S60" value="22.764545012055823" />
-      <entry key="M2" value="24.314286666336326" />
-      <entry key="M5" value="25.370702191067227" />
-      <entry key="M10" value="26.47663343963117" />
-      <entry key="M15" value="27.862771033864977" />
-      <entry key="M30" value="32.32099368403708" />
-      <entry key="H1" value="41.73144648663348" />
-      <entry key="H2" value="80.6501731061912" />
-      <entry key="H4" value="204.90378139965873" />
-      <entry key="D1" value="621.5617488508244" />
-      <entry key="W1" value="766.4498941246197" />
+      <entry key="MS100" value="1.2102241038134287" />
+      <entry key="MS500" value="1.7320428479728127" />
+      <entry key="S2" value="1.9249837975243687" />
+      <entry key="S5" value="1.9692898169359143" />
+      <entry key="S10" value="1.984529579804128" />
+      <entry key="S30" value="2.1424930467000265" />
+      <entry key="S60" value="4.025023030263437" />
+      <entry key="M2" value="9.528145996128186" />
+      <entry key="M5" value="18.59201923269436" />
+      <entry key="M10" value="24.17155885923609" />
+      <entry key="M15" value="27.27367039317476" />
+      <entry key="M30" value="33.573917279957364" />
+      <entry key="H1" value="43.94476133548583" />
+      <entry key="H2" value="82.94412441559525" />
+      <entry key="H4" value="206.75715156541722" />
+      <entry key="D1" value="624.4788003489763" />
+      <entry key="W1" value="770.2590978682878" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
-      <entry key="S5" value="7.297025650511499E-132" />
-      <entry key="S10" value="2.701300733074994E-66" />
-      <entry key="S30" value="1.3927002241154333E-22" />
-      <entry key="S60" value="1.180127206751643E-11" />
-      <entry key="M2" value="3.435297959059216E-6" />
-      <entry key="M5" value="0.006522074638377389" />
-      <entry key="M10" value="0.08075936254396611" />
-      <entry key="M15" value="0.18683660358380993" />
-      <entry key="M30" value="0.4330514772912376" />
-      <entry key="H1" value="0.9566064366866607" />
-      <entry key="H2" value="7.456176412642917" />
-      <entry key="H4" value="33.13433975637535" />
-      <entry key="D1" value="122.71465432960227" />
-      <entry key="W1" value="154.04118195136735" />
+      <entry key="S5" value="6.582217771991632E-145" />
+      <entry key="S10" value="8.113086818216377E-73" />
+      <entry key="S30" value="9.326715037247487E-25" />
+      <entry key="S60" value="9.65749192971317E-13" />
+      <entry key="M2" value="9.827253904175446E-7" />
+      <entry key="M5" value="0.003953419233391468" />
+      <entry key="M10" value="0.0628762215266669" />
+      <entry key="M15" value="0.15812152682905373" />
+      <entry key="M30" value="0.39838597619058724" />
+      <entry key="H1" value="0.9175200377976382" />
+      <entry key="H2" value="7.302260204261525" />
+      <entry key="H4" value="32.790563941903486" />
+      <entry key="D1" value="122.50153270033518" />
+      <entry key="W1" value="154.00293530335364" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3587641962220698" />
-      <entry key="MS500" value="1.8282599560013102" />
-      <entry key="S2" value="2.9931350475749663" />
-      <entry key="S5" value="7.214281109135013" />
-      <entry key="S10" value="12.541923657449718" />
-      <entry key="S30" value="19.99311872400806" />
-      <entry key="S60" value="22.744788127848942" />
-      <entry key="M2" value="24.303556324113156" />
-      <entry key="M5" value="25.372642348290377" />
-      <entry key="M10" value="26.55466677985923" />
-      <entry key="M15" value="28.0473891393839" />
-      <entry key="M30" value="32.752387300936775" />
-      <entry key="H1" value="42.68650629541731" />
-      <entry key="H2" value="88.10291167031752" />
-      <entry key="H4" value="238.03169034544553" />
-      <entry key="D1" value="744.2726875202144" />
-      <entry key="W1" value="920.4904146730761" />
+      <entry key="MS100" value="1.0526930747342487" />
+      <entry key="MS500" value="1.687291866142205" />
+      <entry key="S2" value="1.9126171685843572" />
+      <entry key="S5" value="1.9642352612648524" />
+      <entry key="S10" value="1.9819837342397693" />
+      <entry key="S30" value="2.1413326914349886" />
+      <entry key="S60" value="4.0224728864668595" />
+      <entry key="M2" value="9.523979037713367" />
+      <entry key="M5" value="18.59236145616429" />
+      <entry key="M10" value="24.231789514765886" />
+      <entry key="M15" value="27.429537758340388" />
+      <entry key="M30" value="33.97057466623401" />
+      <entry key="H1" value="44.8606921948613" />
+      <entry key="H2" value="90.2429638275895" />
+      <entry key="H4" value="239.54132419890743" />
+      <entry key="D1" value="746.9766192687424" />
+      <entry key="W1" value="924.261371278691" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -101,12 +101,12 @@
   <component name="ProjectSessionTemplates">
     <option name="panelTemplate">
       <template>
-        <option name="ensembleEnabled" value="false" />
+        <option name="ensembleEnabled" value="true" />
         <option name="modeId" value="Agent" />
         <option name="model">
           <model>
             <option name="modelType" value="builtin_id" />
-            <option name="modelValue" value="auto" />
+            <option name="modelValue" value="ensemble" />
           </model>
         </option>
         <option name="targetType" value="BACKGROUND" />
@@ -341,7 +341,23 @@
       <option name="project" value="LOCAL" />
       <updated>1795089771589</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="feat(tasks): calendar view">
+      <option name="closed" value="true" />
+      <created>1795090544171</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1795090544171</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat(tasks): activity log">
+      <option name="closed" value="true" />
+      <created>1795092045996</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1795092045996</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -375,6 +391,8 @@
     <MESSAGE value="style(tasks): single-row toolbar" />
     <MESSAGE value="feat(tasks): complete, postpone, delete with undo" />
     <MESSAGE value="feat(tasks): add and edit task form" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): add and edit task form" />
+    <MESSAGE value="feat(tasks): calendar view" />
+    <MESSAGE value="feat(tasks): activity log" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(tasks): activity log" />
   </component>
 </project>
