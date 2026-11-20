@@ -1,3 +1,5 @@
+// ========== WIRES THE UI AND THE DATABASE FOR CROPS ===========
+
 import { db } from '../../../core/database/client';
 import { CatalogRepository, type CatalogCrop } from '../data/CatalogRepository';
 import { CropRepository, cropName, type Crop, type CropWithCatalog } from '../data/CropRepository';
@@ -5,6 +7,7 @@ import { TaskRepository, type Task } from '../../tasks/data/TaskRepository';
 import { TaskService } from '../../tasks/services/TaskService';
 import { addDays, diffInDays, parseDate, toDateString, todayString } from '../../../shared/utils/dates';
 
+// The input from the user
 export type CropInput = {
     name: string;
     block: string;
@@ -12,7 +15,11 @@ export type CropInput = {
     unit?: string;
     plantingDate: string; // YYYY-MM-DD
 };
+
+// Feedback for the input validation
 export type CropErrors = Partial<Record<'name' | 'block' | 'quantity' | 'plantingDate', string>>;
+
+// Ready to use for UI rendering
 export type CropView = {
     id: number;
     name: string;
@@ -25,9 +32,13 @@ export type CropView = {
     harvestInDays: number | null;
     fertilizeInDays: number | null;
 };
+
+// A snapshot/undo payload so deleting can be undone
 export type DeletedCrop = { cropId: number; tasks: Task[] };
 
+// Validate user inputs
 function validate(input: CropInput): { errors: CropErrors; quantity: number } {
+    // Validate all fields before writing so invalid form values never reach the repository.
     const errors: CropErrors = {};
     if (!input.name.trim()) errors.name = 'Please enter the crop name.';
     if (!input.block.trim()) errors.block = 'Please enter the block.';
@@ -42,14 +53,18 @@ function validate(input: CropInput): { errors: CropErrors; quantity: number } {
     return { errors, quantity };
 }
 
+// Checks if the crop name the user entered matches anything in the catalog
 function findCatalogMatch(name: string): CatalogCrop | undefined {
+    // Exact English or Filipino matches connect a crop to its maturity and fertilization schedule.
     const n = name.trim().toLowerCase();
     return CatalogRepository.findByName(n, 50).find(
         (c) => c.englishName.toLowerCase() === n || c.filipinoName?.toLowerCase() === n
     );
 }
 
+// Check the block's availability
 function isBlockTaken(block: string, exceptId?: number): boolean {
+    // Compare normalized block names so "1" and " 1 " are treated as the same block.
     const b = block.trim().toLowerCase();
     return CropRepository.findActive().some(
         (i) => i.crop.id !== exceptId && i.crop.block.trim().toLowerCase() === b
@@ -59,7 +74,9 @@ function isBlockTaken(block: string, exceptId?: number): boolean {
 const blockTakenMessage = (block: string) =>
     `Block ${block.trim()} already has a crop. Each block can hold only one crop.`;
 
+// Helper that transforms retrieved database data into UI ready format
 function toView(item: CropWithCatalog, today: string): CropView {
+    // Turn database rows into summary values that the cards and popups can display directly.
     const { crop, catalog } = item;
     const nextHarvest =
         TaskRepository.nextPendingDate(crop.id, 'harvest') ??
@@ -79,6 +96,7 @@ function toView(item: CropWithCatalog, today: string): CropView {
     };
 }
 
+// The business-logic and orchestration object that sits between the UI layer and the data/task layer
 export const CropService = {
     getCrops(): CropView[] {
         const today = todayString();
@@ -123,6 +141,7 @@ export const CropService = {
     },
 
     updateCrop(id: number, input: CropInput): { ok: true } | { ok: false; errors: CropErrors } {
+        // Editing catalog or planting data changes the task schedule, while only moving a block updates existing task labels.
         const { errors, quantity } = validate(input);
         if (!errors.block && isBlockTaken(input.block, id)) errors.block = blockTakenMessage(input.block);
         if (Object.keys(errors).length > 0) return { ok: false, errors };
@@ -148,6 +167,7 @@ export const CropService = {
     },
 
     deleteCrop(id: number): DeletedCrop {
+        // Preserve pending tasks in one transaction so the delete and undo operations stay reversible.
         let removed: Task[] = [];
         db.transaction(() => {
             removed = TaskRepository.takePendingTasks(id);

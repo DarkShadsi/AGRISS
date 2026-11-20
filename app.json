@@ -1,3 +1,5 @@
+//================== Defines the Expo app's metadata ==============
+
 {
   "expo": {
     "name": "AGRISS",

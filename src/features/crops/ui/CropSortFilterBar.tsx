@@ -1,3 +1,5 @@
+// ==============  CONTAINS THE FILTER AND SORT UI COMPONENTS =============
+
 import { Pressable, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AppText from '../../../shared/components/AppText';

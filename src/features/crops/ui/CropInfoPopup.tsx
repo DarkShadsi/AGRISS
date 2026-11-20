@@ -1,3 +1,5 @@
+// ============== THE POPUP DIALOG THAT IS USED FOR SHOWING THE FULL CROP INFO ======
+
 import { View } from 'react-native';
 import { Popup } from '../../../shared/components/Popup';
 import AppText from '../../../shared/components/AppText';
@@ -6,6 +8,7 @@ import { daysText, formatLongDate } from '../../../shared/utils/dates';
 import { ageText } from './CropCard';
 import type { CropView } from '../services/CropService';
 
+// Helper for formatting data
 const plural = (n: number) => `${n} day${n === 1 ? '' : 's'}`;
 
 function harvestText(c: CropView): string {

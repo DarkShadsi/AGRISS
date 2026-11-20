@@ -1,3 +1,7 @@
+// ================ THE APP's ROOT LAYOUT ==================
+// ========== INITIALIZES SHARED SERVICES BEFORE ===========
+// =============== DISPLAYING THE SCREEN ==--===============
+
 import { View, Text, AppState } from 'react-native';
 import { TaskService } from '../features/tasks/services/TaskService';
 import '../global.css';
@@ -12,6 +16,7 @@ import { db } from '../core/database/client';
 import migrations from '../../drizzle/migrations';
 import { seedIfNeeded } from '../features/crops/services/SeedService';
 
+// Keep the splash screen visible while the fonts and database are still being loaded
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -21,6 +26,7 @@ export default function RootLayout() {
     const [seedError, setSeedError] = useState<string | null>(null);
 
     useEffect(() => {
+        // Wait for migrations before seeding or running task maintenance.
         if (!success) return;
         try {
             seedIfNeeded();
@@ -32,6 +38,7 @@ export default function RootLayout() {
     }, [success]);
 
     useEffect(() => {
+        // Refresh task deadlines when the app returns from the background.
         if (!seeded) return;
         const sub = AppState.addEventListener('change', (state) => {
             if (state === 'active') {
@@ -41,6 +48,7 @@ export default function RootLayout() {
         return () => sub.remove();
     }, [seeded]);
 
+    // Hide the phone's navigation bar
     useEffect(() => {
         async function hideSystemBars() {
             if (NavigationBar && typeof NavigationBar.setVisibilityAsync === 'function') {

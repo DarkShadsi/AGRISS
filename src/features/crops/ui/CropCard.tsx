@@ -1,3 +1,5 @@
+// =========== THE CARD FOR INDIVIDUAL CROP IN THE CROPS TAB ============
+
 import { Pressable, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import AppText from '../../../shared/components/AppText';

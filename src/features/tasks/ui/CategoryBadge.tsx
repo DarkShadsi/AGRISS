@@ -3,6 +3,8 @@ import AppText from '../../../shared/components/AppText';
 import { COLORS } from '../../../shared/theme';
 import type { TaskCategory } from '../services/TaskService';
 
+// =========== THE SHAPE AND COLOR STYLE USED FOR EACH TASK CATEGORY ===========
+
 export const CATEGORY_COLOR: Record<TaskCategory, string> = {
     harvest: COLORS.harvest,
     fertilize: COLORS.fertilize,

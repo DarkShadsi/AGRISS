@@ -1,5 +1,7 @@
 const pad = (n: number) => String(n).padStart(2, '0');
 
+// =========== SHARED HELPERS FOR CONVERTING AND CALCULATING LOCAL DATES ===========
+
 export function toDateString(d: Date): string {
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
@@ -9,6 +11,7 @@ export function todayString(): string {
 }
 
 export function parseDate(s: string): Date {
+    // Parse YYYY-MM-DD parts directly to avoid timezone changes from ISO date strings.
     const [y, m, d] = s.split('-').map(Number);
     return new Date(y, m - 1, d);
 }

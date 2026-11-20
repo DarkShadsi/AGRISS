@@ -1,15 +1,19 @@
+// ========== HANDLES SORTING,FILTERING, AND DECIDES WHICH ONES TO SHOW =========
+
 import type { CropView } from '../services/CropService';
 
 import { naturalCompare } from '../../../shared/utils/naturalCompare';
 export { naturalCompare };
 
+// Specify allowed options for sorting and filtering
 export type SortKey = 'planting' | 'harvest' | 'name' | 'block';
 export type TypeFilter = 'all' | 'catalog' | 'custom';
 export type CropFilter = { type: TypeFilter; block: string | null };
 
-export const DEFAULT_SORT: SortKey = 'planting';
-export const DEFAULT_FILTER: CropFilter = { type: 'all', block: null };
+export const DEFAULT_SORT: SortKey = 'planting'; // Default to oldest planting date first
+export const DEFAULT_FILTER: CropFilter = { type: 'all', block: null }; // Shows all by default
 
+// Labels for each sort options
 export const SORT_LABELS: Record<SortKey, string> = {
     planting: 'Planting date (oldest first)',
     harvest: 'Harvest date (soonest first)',
@@ -17,12 +21,14 @@ export const SORT_LABELS: Record<SortKey, string> = {
     block: 'Block (1, 2, 3...)',
 };
 
+// Labels for each filter options
 export const TYPE_LABELS: Record<TypeFilter, string> = {
     all: 'All crops',
     catalog: 'Catalog crops',
     custom: 'Custom crops',
 };
 
+// Apply the filters
 export function applyView(crops: CropView[], query: string, sort: SortKey, filter: CropFilter): CropView[] {
     const q = query.trim().toLowerCase();
     const list = crops.filter((c) => {
@@ -41,6 +47,7 @@ export function applyView(crops: CropView[], query: string, sort: SortKey, filte
     return [...list].sort(by[sort]);
 }
 
+// Shows what filter is currently active
 export function describeView(sort: SortKey, filter: CropFilter): string[] {
     const lines: string[] = [];
     if (sort !== DEFAULT_SORT) lines.push(`Sorted by: ${SORT_LABELS[sort]}`);

@@ -3,6 +3,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { COLORS, FONT } from '../../shared/theme';
 
+// =============== CONFIGURES THE APP'S MAIN BOTTOM TAB NAVIGATION ==================
+
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
 const icon = (name: IconName) => ({ color }: { color: string }) => (
     <Ionicons name={name} size={28} color={color} />

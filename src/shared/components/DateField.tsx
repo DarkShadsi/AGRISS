@@ -5,6 +5,8 @@ import AppText from './AppText';
 import { COLORS } from '../theme';
 import { formatLongDate, parseDate, toDateString } from '../utils/dates';
 
+// =========== A DATE INPUT THAT OPENS THE ANDROID DATE PICKER ===========
+
 type Props = {
     label: string;
     value: string;

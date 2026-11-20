@@ -1,3 +1,5 @@
+// ============== THE POPUP FORM THAT IS USED WHEN ADDING A NEW CROP OR EDITING AN EXISTING ONE ===========
+
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -12,7 +14,7 @@ import { CropService, type CropErrors, type CropView } from '../services/CropSer
 
 type Props = {
     visible: boolean;
-    mode: 'add' | 'edit';
+    mode: 'add' | 'edit'; // Determines if it is edit or add
     crop?: CropView | null;
     onClose: () => void;
     onSaved: (message: string) => void;
@@ -29,7 +31,7 @@ export default function CropFormPopup({ visible, mode, crop, onClose, onSaved }:
 
     useEffect(() => {
         if (!visible) return;
-        if (mode === 'edit' && crop) {
+        if (mode === 'edit' && crop) { // If edit mode, the existing data act as the placeholder
             setName(crop.name);
             setBlock(crop.block);
             setQuantity(String(crop.quantity));
@@ -38,11 +40,11 @@ export default function CropFormPopup({ visible, mode, crop, onClose, onSaved }:
             setPlantingDate(crop.plantingDate);
         } else {
             setName('');
-            setBlock(CropService.suggestNextBlock());
+            setBlock(CropService.suggestNextBlock()); // Use the next available block as the placeholder
             setQuantity('');
-            setUnit('units');
+            setUnit('units'); // Default units is just "unit"
             setUnitEdited(false);
-            setPlantingDate(todayString());
+            setPlantingDate(todayString()); // Planting date default is today
         }
         setErrors({});
     }, [visible, mode, crop?.id]);
@@ -58,6 +60,7 @@ export default function CropFormPopup({ visible, mode, crop, onClose, onSaved }:
         if (!unitEdited) setUnit(exact?.unit ?? 'units');
     }, [exact?.id, unitEdited]);
 
+    // Show a message on what happens based on the user input
     let hint: string | undefined;
     if (typed) {
         if (exact) hint = 'In the catalog: automatic tasks will be made.';
@@ -65,6 +68,7 @@ export default function CropFormPopup({ visible, mode, crop, onClose, onSaved }:
         else hint = 'Not in the catalog: no automatic tasks will be made. You can still save it.';
     }
 
+    // Commit the action
     const submit = () => {
         const input = { name, block, quantity, unit, plantingDate };
         if (mode === 'edit' && crop) {

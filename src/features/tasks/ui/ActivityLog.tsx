@@ -11,6 +11,8 @@ import CropSortFilterBar from '../../crops/ui/CropSortFilterBar';
 import { TaskService, type LogSort, type TaskCategory, type TaskSection, type TaskView } from '../services/TaskService';
 import CategoryBadge from './CategoryBadge';
 
+// =========== SHOWS COMPLETED TASKS AND THE FILTERS FOR THE ACTIVITY LOG ===========
+
 const ALL = '__all__';
 const SORTS: { value: LogSort; label: string }[] = [
     { value: 'newest', label: 'Newest first' },

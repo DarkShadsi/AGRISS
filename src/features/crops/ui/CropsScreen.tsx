@@ -1,3 +1,5 @@
+// =========== THE MAIN SCREEN FOR THE CROPS TAB ===========
+
 import { useCallback, useState } from 'react';
 import { FlatList, TextInput, View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
@@ -34,6 +36,7 @@ export default function CropsScreen() {
     const [menuFor, setMenuFor] = useState<CropView | null>(null);
     const [infoFor, setInfoFor] = useState<CropView | null>(null);
 
+    // Helper function that is called whenever something changes
     const reload = useCallback(() => setCrops(CropService.getCrops()), []);
     useFocusEffect(reload);
 
@@ -41,12 +44,15 @@ export default function CropsScreen() {
     const blocks = [...new Set(crops.map((c) => c.block))].sort(naturalCompare);
     const filterActive = filter.type !== 'all' || filter.block !== null;
 
+    // Ask for user's delete confirmation
     const confirmDelete = () => {
         if (!deleteFor) return;
         setDeleted(CropService.deleteCrop(deleteFor.id));
         setDeleteFor(null);
         reload();
     };
+
+    // Undo a deleted crop
     const undoDelete = () => {
         if (deleted) CropService.restoreCrop(deleted);
         setDeleted(null);

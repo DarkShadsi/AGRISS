@@ -1,3 +1,5 @@
+// =============== THE POPUP FORM FOR FILTERING THE CROPS LIST =========
+
 import { ScrollView, View, useWindowDimensions } from 'react-native';
 import { Popup } from '../../../shared/components/Popup';
 import AppText from '../../../shared/components/AppText';
