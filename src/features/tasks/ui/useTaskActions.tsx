@@ -3,6 +3,8 @@ import { OptionsPopup, type PopupOption } from '../../../shared/components/Popup
 import { ConfirmPopup, UndoPopup } from '../../../shared/components/Dialogs';
 import { TaskService, type TaskUndo, type TaskView } from '../services/TaskService';
 
+// =========== HANDLES THE TASK ACTIONS AND THEIR CONFIRMATION POPUPS ===========
+
 type Options = {
     onChanged: () => void;
     onEdit?: (task: TaskView) => void;

@@ -2,6 +2,8 @@ import { and, asc, count, desc, eq, isNotNull, lt, max, min } from 'drizzle-orm'
 import { db } from '../../../core/database/client';
 import { tasks } from '../../../core/database/schema';
 
+// =========== TASK SERVICES WILL USE THIS TO FETCH ACTUAL TASK DATA FROM THE DATABASE =========
+
 export type Task = typeof tasks.$inferSelect;
 export type NewTask = typeof tasks.$inferInsert;
 

@@ -22,6 +22,8 @@ import { useTaskForm } from './useTaskForm';
 import TaskCalendar from './TaskCalendar';
 import ActivityLog from './ActivityLog';
 
+// =========== THE MAIN SCREEN FOR THE TASKS TAB ===========
+
 type Filter = 'all' | TaskCategory;
 const FILTERS: { value: Filter; label: string }[] = [
     { value: 'all', label: 'All tasks' },

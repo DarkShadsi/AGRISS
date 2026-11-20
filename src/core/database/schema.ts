@@ -1,5 +1,8 @@
+// ================ CREATES THE DATABASE SCHEMA FOR THE APP =====================
+
 import { sqliteTable, integer, text, real, index } from 'drizzle-orm/sqlite-core';
 
+// Crops catalog is the main source of information (read-ony)
 export const cropsCatalog = sqliteTable('crops_catalog', {
     id: integer('id').primaryKey({ autoIncrement: true }),
     englishName: text('english_name').notNull(),
@@ -12,6 +15,7 @@ export const cropsCatalog = sqliteTable('crops_catalog', {
     unit: text('unit').notNull(),
 });
 
+// Used to see the current fertilization stage of a crop
 export const cropFertilizationStages = sqliteTable('crop_fertilization_stages', {
     id: integer('id').primaryKey({ autoIncrement: true }),
     cropCatalogId: integer('crop_catalog_id').notNull().references(() => cropsCatalog.id),
@@ -24,6 +28,7 @@ export const cropFertilizationStages = sqliteTable('crop_fertilization_stages', 
     repeatUntilHarvest: integer('repeat_until_harvest', { mode: 'boolean' }).notNull(),
 });
 
+// Holds the actual user inputted data
 export const crops = sqliteTable('crops', {
     id: integer('id').primaryKey({ autoIncrement: true }),
     catalogId: integer('catalog_id').references(() => cropsCatalog.id),
@@ -38,6 +43,7 @@ export const crops = sqliteTable('crops', {
     harvestTasksUntil: text('harvest_tasks_until'),
 }, (t) => [index('idx_crops_deleted_at').on(t.deletedAt)]);
 
+// Holds all the tasks, both custom and auto-generated
 export const tasks = sqliteTable('tasks', {
     id: integer('id').primaryKey({ autoIncrement: true }),
     cropId: integer('crop_id').references(() => crops.id),
@@ -54,6 +60,7 @@ export const tasks = sqliteTable('tasks', {
     index('idx_tasks_crop').on(t.cropId),
 ]);
 
+// Holds the Sales ledger data
 export const sales = sqliteTable('sales', {
     id: integer('id').primaryKey({ autoIncrement: true }),
     cropId: integer('crop_id').notNull().references(() => crops.id),

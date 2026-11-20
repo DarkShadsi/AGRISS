@@ -1,17 +1,23 @@
+// ============= INITIALIZES THE APP'S CROP AND FERTILIZATION DATA ============
+
 import { eq } from 'drizzle-orm';
 import { db } from '../../../core/database/client';
 import { appMeta, cropsCatalog, cropFertilizationStages } from '../../../core/database/schema';
-import seedJson from '../../../../assets/seed/ph_crops_seed_data.json';
+import seedJson from '../../../../assets/seed/ph_crops_seed_data.json';  // Read the json file
 
 const SEED_VERSION = '1';
 const mid = (a: number, b: number) => Math.round((a + b) / 2);
 
 export function seedIfNeeded(): void {
+    // The app seeds only once per seed version; changing SEED_VERSION triggers a controlled re-seed.
     const current = db.select().from(appMeta).where(eq(appMeta.key, 'seed_version')).get();
-    if (current?.value === SEED_VERSION) return;
+    if (current?.value === SEED_VERSION) return;  // Seed only if the json has different seed version
 
+    // Create a new transaction to ensure atomicity
     db.transaction((tx) => {
         for (const crop of seedJson.crops) {
+            // Use midpoints from the JSON ranges for maturity and yield instead of storing range values.
+            // Create a new row for each crop in the json file into the crops catalog
             const row = tx
                 .insert(cropsCatalog)
                 .values({
@@ -27,6 +33,7 @@ export function seedIfNeeded(): void {
                 .returning({ id: cropsCatalog.id })
                 .get();
 
+            // Create a new row for each fertilization stage in the json file into the crop fertilization stage table
             tx.insert(cropFertilizationStages)
                 .values(
                     crop.fertilization_schedule.map((s, i) => ({
@@ -43,6 +50,7 @@ export function seedIfNeeded(): void {
                 .run();
         }
 
+        // When the seed version does not match, seed
         tx.insert(appMeta)
             .values({ key: 'seed_version', value: SEED_VERSION })
             .onConflictDoUpdate({ target: appMeta.key, set: { value: SEED_VERSION } })

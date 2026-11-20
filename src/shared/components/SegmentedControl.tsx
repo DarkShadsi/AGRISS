@@ -3,6 +3,8 @@ import { Ionicons } from '@expo/vector-icons';
 import AppText from './AppText';
 import { COLORS } from '../theme';
 
+// =========== A REUSABLE SET OF OPTIONS THAT ACTS LIKE A SMALL TAB CONTROL ===========
+
 type IconName = React.ComponentProps<typeof Ionicons>['name'];
 type Option<T extends string> = { value: T; label: string; icon?: IconName };
 

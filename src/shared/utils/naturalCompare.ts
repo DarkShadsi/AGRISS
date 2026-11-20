@@ -1,5 +1,6 @@
 /** Orders "2" before "10", and "A2" before "A10". */
 export function naturalCompare(a: string, b: string): number {
+    // Compare text and numbers separately so block names sort in numeric order.
     const ax = a.toLowerCase().match(/\d+|\D+/g) ?? [];
     const bx = b.toLowerCase().match(/\d+|\D+/g) ?? [];
     for (let i = 0; i < Math.min(ax.length, bx.length); i++) {

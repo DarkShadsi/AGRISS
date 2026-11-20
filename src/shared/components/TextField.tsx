@@ -2,6 +2,8 @@ import { TextInput, TextInputProps, View } from 'react-native';
 import AppText from './AppText';
 import { COLORS, FONT, SIZE } from '../theme';
 
+// =========== A REUSABLE TEXT INPUT WITH A SHARED STYLE AND MESSAGE AREA ===========
+
 type Props = Omit<TextInputProps, 'style'> & { label: string; error?: string; hint?: string };
 
 export default function TextField({ label, error, hint, ...inputProps }: Props) {

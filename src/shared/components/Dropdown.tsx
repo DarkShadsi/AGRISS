@@ -4,6 +4,8 @@ import { Ionicons } from '@expo/vector-icons';
 import AppText from './AppText';
 import { COLORS } from '../theme';
 
+// =========== A REUSABLE DROPDOWN WITH A SCROLLABLE LIST OF OPTIONS ===========
+
 export type DropdownOption = { value: string; label: string };
 
 type Props = {

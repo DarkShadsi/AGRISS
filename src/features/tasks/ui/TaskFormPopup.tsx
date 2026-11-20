@@ -11,6 +11,8 @@ import { todayString } from '../../../shared/utils/dates';
 import { CropService } from '../../crops/services/CropService';
 import { TaskService, type TaskErrors, type TaskView } from '../services/TaskService';
 
+// ============== THE POPUP FORM THAT IS USED WHEN ADDING A NEW TASK OR EDITING ONE ===========
+
 const NONE = '__none__';
 const QUICK_PICKS = ['Spray', 'Water', 'Weed', 'Prune'];
 

@@ -10,6 +10,8 @@ import { formatLongDate, toDateString, todayString } from '../../../shared/utils
 import { TaskService, type TaskCategory, type TaskView } from '../services/TaskService';
 import CategoryBadge, { CATEGORY_LABEL } from './CategoryBadge';
 
+// =========== THE MONTHLY CALENDAR VIEW FOR PENDING TASKS ===========
+
 const MONTHS = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December',

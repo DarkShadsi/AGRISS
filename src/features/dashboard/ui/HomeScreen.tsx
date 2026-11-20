@@ -4,6 +4,8 @@ import AppText from '../../../shared/components/AppText';
 import AppButton from '../../../shared/components/AppButton';
 import { COLORS } from '../../../shared/theme';
 
+// =========== THE MAIN SCREEN FOR THE HOME TAB ===========
+
 export default function HomeScreen() {
     return (
         <ScreenContainer>

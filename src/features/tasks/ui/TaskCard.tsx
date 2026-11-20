@@ -5,6 +5,8 @@ import { COLORS } from '../../../shared/theme';
 import CategoryBadge from './CategoryBadge';
 import type { TaskView } from '../services/TaskService';
 
+// =========== THE CARD FOR INDIVIDUAL TASKS IN THE TASKS TAB ===========
+
 type Props = { task: TaskView; onToggle: () => void; onInfo: () => void };
 
 export default function TaskCard({ task, onToggle, onInfo }: Props) {

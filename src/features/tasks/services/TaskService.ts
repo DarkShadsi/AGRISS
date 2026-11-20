@@ -5,6 +5,8 @@ import { TaskRepository, type NewTask, type Task } from '../data/TaskRepository'
 import { naturalCompare } from '../../../shared/utils/naturalCompare';
 import { addDays, diffInDays, formatLongDate, parseDate, toDateString, todayString, } from '../../../shared/utils/dates';
 
+// ========== WIRES THE TASK UI AND THE DATABASE FOR PENDING AND COMPLETED TASKS ===========
+
 export const FERTILIZE_HORIZON_DAYS = 21;
 export const HARVEST_HORIZON_DAYS = 30;
 export const MAX_UPCOMING_HARVESTS = 5;
@@ -16,7 +18,9 @@ const later = (a: string, b: string) => (a > b ? a : b);
 const earlier = (a: string, b: string) => (a < b ? a : b);
 
 function fertilizationDates(plantingDate: string, stage: FertilizationStage, harvestDate: string, until: string): string[] {
+    // Start at the crop's planting date plus the stage's configured day offset.
     const first = addDays(plantingDate, stage.dayOffset);
+    // A one-time stage is simply scheduled once; recurring stages use their interval until the limit.
     if (!stage.isRecurring || !stage.intervalDays || stage.intervalDays <= 0) return [first];
     const end = stage.repeatUntilHarvest ? earlier(harvestDate, until) : until;
     const dates: string[] = [];
@@ -25,6 +29,7 @@ function fertilizationDates(plantingDate: string, stage: FertilizationStage, har
 }
 
 function harvestDates(plantingDate: string, catalog: CatalogCrop, until: string): string[] {
+    // Calculate the first harvest from planting, then repeat until the requested task horizon.
     const first = addDays(plantingDate, catalog.daysToMaturity);
     if (catalog.isOneTimeHarvest || !catalog.harvestInterval || catalog.harvestInterval <= 0) {
         return first <= until ? [first] : [];
@@ -35,6 +40,7 @@ function harvestDates(plantingDate: string, catalog: CatalogCrop, until: string)
 }
 
 function topUpCrop(item: CropWithCatalog, today: string): void {
+    // Adds only missing upcoming tasks; existing pending and completed work is not recreated.
     const { crop, catalog } = item;
     if (!catalog) return; // crops outside the catalog get no automatic tasks
 
@@ -125,6 +131,7 @@ const PAST_TENSE: Record<string, string> = { harvest: 'Harvested', fertilize: 'F
 type CropLookup = { byId: Map<number, CropWithCatalog>; byBlock: Map<string, CropWithCatalog> };
 
 function buildLookup(): CropLookup {
+    // One lookup is reused when turning many database rows into crop-aware task views.
     const items = CropRepository.findActive();
     return {
         byId: new Map(items.map((i) => [i.crop.id, i])),
@@ -133,6 +140,7 @@ function buildLookup(): CropLookup {
 }
 
 function toView(task: Task, today: string, lookup: CropLookup): TaskView {
+    // Prefer the task's crop id, but allow the block to identify a crop for older or incomplete records.
     const crop =
         (task.cropId !== null ? lookup.byId.get(task.cropId) : undefined) ??
         (task.block ? lookup.byBlock.get(task.block.trim().toLowerCase()) : undefined);
@@ -174,6 +182,7 @@ function dateTitle(date: string, today: string): string {
 }
 
 function validateTask(input: TaskInput, today: string): TaskErrors {
+    // Task validation keeps the form and database rules in one place.
     const errors: TaskErrors = {};
     if (!input.title.trim()) errors.title = 'Please enter the task.';
     const d = input.scheduledDate;
@@ -194,11 +203,13 @@ function logDayTitle(day: string, today: string): string {
 
 export const TaskService = {
     generateForCrop(cropId: number, today = todayString()): void {
+        // Generate from a crop id so callers do not need to pass the full database row.
         const item = CropRepository.findById(cropId);
         if (item) topUpCrop(item, today);
     },
 
     regenerateForCrop(cropId: number, today = todayString()): void {
+        // Reset the schedule markers before rebuilding when planting or catalog data changes.
         db.transaction(() => {
             TaskRepository.deletePendingAutoTasks(cropId);
             CropRepository.update(cropId, { fertilizeTasksUntil: null, harvestTasksUntil: null });
@@ -211,6 +222,7 @@ export const TaskService = {
     },
 
     runMaintenance(today = todayString()): void {
+        // Run on startup and when the app becomes active to clean old tasks and top up schedules.
         this.removeOverdue(today);
         for (const item of CropRepository.findActive()) topUpCrop(item, today);
     },
@@ -282,6 +294,7 @@ export const TaskService = {
     },
 
     completeTask(id: number): TaskUndo | null {
+        // Tasks can only be completed once and only when they are due.
         const task = TaskRepository.findById(id);
         if (!task || task.status !== 'pending' || task.scheduledDate > todayString()) return null;
         TaskRepository.update(id, { status: 'completed', completedAt: Date.now() });
@@ -304,6 +317,7 @@ export const TaskService = {
     },
 
     undo(u: TaskUndo): void {
+        // Restore the exact previous state so each success message can be reversed from the UI.
         if (u.kind === 'complete') TaskRepository.update(u.id, { status: 'pending', completedAt: null });
         else if (u.kind === 'postpone') TaskRepository.update(u.id, { scheduledDate: u.previousDate });
         else TaskRepository.restore(u.task);

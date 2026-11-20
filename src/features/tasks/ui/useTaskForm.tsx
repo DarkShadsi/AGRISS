@@ -3,6 +3,8 @@ import { MessagePopup } from '../../../shared/components/Popup';
 import type { TaskView } from '../services/TaskService';
 import TaskFormPopup from './TaskFormPopup';
 
+// =========== HANDLES THE ADD AND EDIT TASK FORM ===========
+
 export function useTaskForm({ onChanged }: { onChanged: () => void }) {
     const [open, setOpen] = useState(false);
     const [form, setForm] = useState<{ mode: 'add' | 'edit'; task: TaskView | null }>({ mode: 'add', task: null });
