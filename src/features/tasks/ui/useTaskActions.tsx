@@ -74,7 +74,13 @@ export function useTaskActions({ onChanged, onEdit }: Options) {
                 onConfirm={confirmDelete}
                 onCancel={() => setDeleteFor(null)}
             />
-            <UndoPopup visible={!!undo} message={undo?.message ?? ''} onUndo={doUndo} onOkay={() => setUndo(null)} />
+            <UndoPopup
+                visible={!!undo}
+                message={undo?.message ?? ''}
+                success={undo?.action.kind === 'complete'}
+                onUndo={doUndo}
+                onOkay={() => setUndo(null)}
+            />
         </>
     );
 

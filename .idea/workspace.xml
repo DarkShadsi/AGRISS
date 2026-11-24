@@ -4,46 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="fix(tasks): calendar and log refresh">
-      <change afterPath="$PROJECT_DIR$/assets/images/agriss-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/agriss-no-bg.png" afterDir="false" />
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="Added 2 new assets for the logo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(tabs)/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/database/client.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/database/client.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/database/schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/data/CatalogRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/data/CatalogRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/data/CropRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/data/CropRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/services/CropService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/services/SeedService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/services/SeedService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropFilterPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropFilterPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropFormPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropFormPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropInfoPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropInfoPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropSortFilterBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropSortFilterBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/CropsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/crops/ui/cropListOptions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/crops/ui/cropListOptions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/sales/ui/AnalyticsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/sales/ui/AnalyticsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/data/TaskRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/ActivityLog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/ActivityLog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/CategoryBadge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/CategoryBadge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TaskCalendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskCalendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TaskCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TaskFormPopup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TaskFormPopup.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/TasksScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/useTaskActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/useTaskActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/useTaskForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/useTaskForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/DateField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/DateField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Dropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Dropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/ScreenContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/ScreenContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/SegmentedControl.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/SegmentedControl.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/TextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/TextField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/utils/dates.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/dates.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/utils/naturalCompare.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/utils/naturalCompare.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,61 +36,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000174766026" />
-      <entry key="MS500" value="1.0280860977065946" />
-      <entry key="S2" value="1.4093764452788067" />
-      <entry key="S5" value="1.6996513485650535" />
-      <entry key="S10" value="1.857722240557154" />
-      <entry key="S30" value="3.2283219483667573" />
-      <entry key="S60" value="6.213135397190989" />
-      <entry key="M2" value="12.3245007825936" />
-      <entry key="M5" value="23.480988157436382" />
-      <entry key="M10" value="30.906349938285917" />
-      <entry key="M15" value="34.841877329120344" />
-      <entry key="M30" value="42.11257548422663" />
-      <entry key="H1" value="53.0217387697045" />
-      <entry key="H2" value="92.12958378745104" />
-      <entry key="H4" value="215.7906000498897" />
-      <entry key="D1" value="634.0028441765799" />
-      <entry key="W1" value="780.1753944877261" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000150308308" />
+      <entry key="S5" value="1.0007426654077365" />
+      <entry key="S10" value="1.0272537600361162" />
+      <entry key="S30" value="1.3508142743170888" />
+      <entry key="S60" value="2.2651428677238545" />
+      <entry key="M2" value="4.732387078399491" />
+      <entry key="M5" value="13.266268107299457" />
+      <entry key="M10" value="28.30694180896224" />
+      <entry key="M15" value="39.66464438437277" />
+      <entry key="M30" value="59.63161740286994" />
+      <entry key="H1" value="79.81405438006753" />
+      <entry key="H2" value="122.50753781704553" />
+      <entry key="H4" value="245.65436439368273" />
+      <entry key="D1" value="670.9239861697298" />
+      <entry key="W1" value="822.1110954042588" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="1.46207187259799E-150" />
-      <entry key="S10" value="1.2091616403930405E-75" />
-      <entry key="S30" value="1.0653560758091553E-25" />
-      <entry key="S60" value="3.2639792827301415E-13" />
-      <entry key="M2" value="5.713124611567764E-7" />
-      <entry key="M5" value="0.003182361257875913" />
-      <entry key="M10" value="0.056412421131693355" />
-      <entry key="M15" value="0.14709001826709403" />
-      <entry key="M30" value="0.384237849955945" />
-      <entry key="H1" value="0.9010805351077983" />
-      <entry key="H2" value="7.236546041720982" />
-      <entry key="H4" value="32.64268683405103" />
-      <entry key="D1" value="122.40928407856299" />
-      <entry key="W1" value="153.9863627461874" />
+      <entry key="MS500" value="2.328762392353005E-121" />
+      <entry key="S2" value="7.754349302542188E-31" />
+      <entry key="S5" value="1.2352142038435431E-12" />
+      <entry key="S10" value="1.6336030589484001E-6" />
+      <entry key="S30" value="0.025505216011374773" />
+      <entry key="S60" value="0.31136323912590264" />
+      <entry key="M2" value="1.1085764048702005" />
+      <entry key="M5" value="2.3904425883575935" />
+      <entry key="M10" value="3.1061746538700894" />
+      <entry key="M15" value="3.4290066286012606" />
+      <entry key="M30" value="3.917278335584048" />
+      <entry key="H1" value="4.553822339964653" />
+      <entry key="H2" value="10.393241807713823" />
+      <entry key="H4" value="34.842494409698816" />
+      <entry key="D1" value="125.27825790241235" />
+      <entry key="W1" value="157.78257096361583" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9265880767915321" />
-      <entry key="MS500" value="1.0120711479985545" />
-      <entry key="S2" value="1.4023211463130676" />
-      <entry key="S5" value="1.6959000592699391" />
-      <entry key="S10" value="1.85551530206908" />
-      <entry key="S30" value="3.224939170928075" />
-      <entry key="S60" value="6.208275516339014" />
-      <entry key="M2" value="12.31880800594935" />
-      <entry key="M5" value="23.479491915852805" />
-      <entry key="M10" value="30.959407646715263" />
-      <entry key="M15" value="34.98619365490068" />
-      <entry key="M30" value="42.49479596594981" />
-      <entry key="H1" value="53.92108049511007" />
-      <entry key="H2" value="99.3626500030373" />
-      <entry key="H4" value="248.42687929698533" />
-      <entry key="D1" value="756.4084097273798" />
-      <entry key="W1" value="934.1610943338427" />
+      <entry key="MS100" value="0.002387969292367321" />
+      <entry key="MS500" value="0.29895494919403104" />
+      <entry key="S2" value="0.7394374421099212" />
+      <entry key="S5" value="0.8865451657759786" />
+      <entry key="S10" value="0.958337930435681" />
+      <entry key="S30" value="1.3102225571132908" />
+      <entry key="S60" value="2.5107371750035226" />
+      <entry key="M2" value="5.779077187734728" />
+      <entry key="M5" value="15.612464080786548" />
+      <entry key="M10" value="31.384012202666256" />
+      <entry key="M15" value="43.071814040072375" />
+      <entry key="M30" value="63.53612588558156" />
+      <entry key="H1" value="84.36041986621508" />
+      <entry key="H2" value="132.8945445911673" />
+      <entry key="H4" value="280.4892133434845" />
+      <entry key="D1" value="796.1982926111016" />
+      <entry key="W1" value="979.8929661062298" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -198,16 +162,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="AGRISS" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="AGRISS" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -215,6 +177,13 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
   </component>
@@ -402,7 +371,31 @@
       <option name="project" value="LOCAL" />
       <updated>1795137794487</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added comments part 1">
+      <option name="closed" value="true" />
+      <created>1795160543068</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1795160543069</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added comments part 2">
+      <option name="closed" value="true" />
+      <created>1795160563473</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1795160563473</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added 2 new assets for the logo">
+      <option name="closed" value="true" />
+      <created>1795160601026</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1795160601026</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -439,6 +432,9 @@
     <MESSAGE value="feat(tasks): calendar view" />
     <MESSAGE value="feat(tasks): activity log" />
     <MESSAGE value="fix(tasks): calendar and log refresh" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(tasks): calendar and log refresh" />
+    <MESSAGE value="Added comments part 1" />
+    <MESSAGE value="Added comments part 2" />
+    <MESSAGE value="Added 2 new assets for the logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added 2 new assets for the logo" />
   </component>
 </project>

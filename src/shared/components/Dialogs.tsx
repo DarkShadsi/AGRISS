@@ -33,17 +33,17 @@ export function ConfirmPopup({
     );
 }
 
-type UndoProps = { visible: boolean; message: string; onUndo: () => void; onOkay: () => void };
+type UndoProps = { visible: boolean; message: string; onUndo: () => void; onOkay: () => void; success?: boolean; };
 
 /** Success message with Undo. Stays open until the user taps Okay or outside the message. */
-export function UndoPopup({ visible, message, onUndo, onOkay }: UndoProps) {
+export function UndoPopup({ visible, message, onUndo, onOkay, success }: UndoProps) {
     return (
         <Popup visible={visible} onClose={onOkay}>
             <AppText variant="subheading" weight="semibold" style={{ marginBottom: 8 }}>{message}</AppText>
             <AppText variant="label" tone="muted" style={{ marginBottom: 16 }}>Changed your mind? Tap Undo.</AppText>
             <View className="flex-row gap-3">
-                <View style={{ flex: 1 }}><AppButton title="Undo" onPress={onUndo} /></View>
-                <View style={{ flex: 1 }}><AppButton title="Okay" variant="secondary" onPress={onOkay} /></View>
+                <View style={{ flex: 1 }}><AppButton title="Undo" variant={ success? "secondary" : "primary" } onPress={onUndo} /></View>
+                <View style={{ flex: 1 }}><AppButton title="Okay" variant={ success? "primary" : "secondary" } onPress={onOkay} /></View>
             </View>
         </Popup>
     );
