@@ -96,14 +96,21 @@ export default function HomeScreen() {
                 />
 
                 <View style={{ gap: 10 }}>
-                    <AppText variant="heading" weight="bold" tone="primary">Today's tasks</AppText>
-                    <CropSortFilterBar
-                        summary={summary}
-                        sortActive={sort !== 'block'}
-                        filterActive={category !== 'all'}
-                        onSort={() => setSortOpen(true)}
-                        onFilter={() => setFilterOpen(true)}
-                    />
+                    <View className="flex-row items-center gap-2">
+                        <AppText variant="heading" weight="bold" tone="primary">
+                            Today's tasks
+                        </AppText>
+                        <View style={{ flex: 1 }}>
+                            <CropSortFilterBar
+                                summary={summary}
+                                sortActive={sort !== 'block'}
+                                filterActive={category !== 'all'}
+                                onSort={() => setSortOpen(true)}
+                                onFilter={() => setFilterOpen(true)}
+                                compact
+                            />
+                        </View>
+                    </View>
                     {__DEV__ && (
                         <View className="flex-row gap-3">
                             <View style={{ flex: 1 }}><AppButton title="TEMP add" variant="secondary" onPress={addSamples} /></View>
