@@ -352,4 +352,23 @@ export const TaskService = {
         for (const t of TaskRepository.findCompleted()) if (t.block) blocks.add(t.block);
         return [...blocks].sort(naturalCompare);
     },
+
+    // HOME list: overdue first, then today's tasks sorted by block or category.
+    getTodayViews(opts: { sort?: 'block' | 'category'; category?: 'all' | TaskCategory } = {}): TaskView[] {
+        const { sort = 'block', category = 'all' } = opts;
+        const today = todayString();
+        const lookup = buildLookup();
+        const views = TaskRepository.findPending()
+            .filter((t) => t.scheduledDate <= today && (category === 'all' || t.category === category))
+            .map((t) => toView(t, today, lookup));
+        const overdue = views.filter((v) => v.isOverdue).sort(compareViews);
+        const todays = views
+            .filter((v) => !v.isOverdue)
+            .sort((a, b) =>
+                sort === 'block'
+                    ? naturalCompare(a.block ?? '~', b.block ?? '~') || CATEGORY_ORDER[a.category] - CATEGORY_ORDER[b.category] || a.id - b.id
+                    : CATEGORY_ORDER[a.category] - CATEGORY_ORDER[b.category] || naturalCompare(a.block ?? '~', b.block ?? '~') || a.id - b.id
+            );
+        return [...overdue, ...todays];
+    },
 };

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="Added 2 new assets for the logo">
+    <list default="true" id="931c5184-3103-41e3-ac37-fca39a01539c" name="Changes" comment="Changed the Finish task Message dialog box UI">
+      <change afterPath="$PROJECT_DIR$/src/features/dashboard/data/SettingsRepository.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/dashboard/services/DashboardService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/dashboard/ui/HomeHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/dashboard/ui/SortFilterBox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/dashboard/ui/UpcomingHarvests.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/tasks/ui/useTaskActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/ui/useTaskActions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/components/Dialogs.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/dashboard/ui/HomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/tasks/services/TaskService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,59 +43,59 @@
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000000150308308" />
-      <entry key="S5" value="1.0007426654077365" />
-      <entry key="S10" value="1.0272537600361162" />
-      <entry key="S30" value="1.3508142743170888" />
-      <entry key="S60" value="2.2651428677238545" />
-      <entry key="M2" value="4.732387078399491" />
-      <entry key="M5" value="13.266268107299457" />
-      <entry key="M10" value="28.30694180896224" />
-      <entry key="M15" value="39.66464438437277" />
-      <entry key="M30" value="59.63161740286994" />
-      <entry key="H1" value="79.81405438006753" />
-      <entry key="H2" value="122.50753781704553" />
-      <entry key="H4" value="245.65436439368273" />
-      <entry key="D1" value="670.9239861697298" />
-      <entry key="W1" value="822.1110954042588" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000002808362" />
+      <entry key="S60" value="1.0000246731930127" />
+      <entry key="M2" value="1.0120141935558222" />
+      <entry key="M5" value="1.8860031313334007" />
+      <entry key="M10" value="6.2842655649094175" />
+      <entry key="M15" value="12.811755474090722" />
+      <entry key="M30" value="33.73728650625798" />
+      <entry key="H1" value="63.54044988045423" />
+      <entry key="H2" value="112.60274268499528" />
+      <entry key="H4" value="235.05700834366758" />
+      <entry key="D1" value="676.6213115635758" />
+      <entry key="W1" value="839.5914832148433" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.328762392353005E-121" />
-      <entry key="S2" value="7.754349302542188E-31" />
-      <entry key="S5" value="1.2352142038435431E-12" />
-      <entry key="S10" value="1.6336030589484001E-6" />
-      <entry key="S30" value="0.025505216011374773" />
-      <entry key="S60" value="0.31136323912590264" />
-      <entry key="M2" value="1.1085764048702005" />
-      <entry key="M5" value="2.3904425883575935" />
-      <entry key="M10" value="3.1061746538700894" />
-      <entry key="M15" value="3.4290066286012606" />
-      <entry key="M30" value="3.917278335584048" />
-      <entry key="H1" value="4.553822339964653" />
-      <entry key="H2" value="10.393241807713823" />
-      <entry key="H4" value="34.842494409698816" />
-      <entry key="D1" value="125.27825790241235" />
-      <entry key="W1" value="157.78257096361583" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="8.102355377004998E-183" />
+      <entry key="S5" value="1.4569495549658924E-73" />
+      <entry key="S10" value="3.8170018436502586E-37" />
+      <entry key="S30" value="7.300135561307587E-13" />
+      <entry key="S60" value="9.196665509148026E-7" />
+      <entry key="M2" value="0.0011838334130947" />
+      <entry key="M5" value="0.10323761263022588" />
+      <entry key="M10" value="0.5851899268022309" />
+      <entry key="M15" value="1.1733145749274043" />
+      <entry key="M30" value="2.618274215350966" />
+      <entry key="H1" value="4.28749880246233" />
+      <entry key="H2" value="9.817260449259228" />
+      <entry key="H4" value="32.5520244792683" />
+      <entry key="D1" value="124.62541433880854" />
+      <entry key="W1" value="159.30171208839946" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.002387969292367321" />
-      <entry key="MS500" value="0.29895494919403104" />
-      <entry key="S2" value="0.7394374421099212" />
-      <entry key="S5" value="0.8865451657759786" />
-      <entry key="S10" value="0.958337930435681" />
-      <entry key="S30" value="1.3102225571132908" />
-      <entry key="S60" value="2.5107371750035226" />
-      <entry key="M2" value="5.779077187734728" />
-      <entry key="M5" value="15.612464080786548" />
-      <entry key="M10" value="31.384012202666256" />
-      <entry key="M15" value="43.071814040072375" />
-      <entry key="M30" value="63.53612588558156" />
-      <entry key="H1" value="84.36041986621508" />
-      <entry key="H2" value="132.8945445911673" />
-      <entry key="H4" value="280.4892133434845" />
-      <entry key="D1" value="796.1982926111016" />
-      <entry key="W1" value="979.8929661062298" />
+      <entry key="MS100" value="0.8293195458144417" />
+      <entry key="MS500" value="0.963261894020148" />
+      <entry key="S2" value="0.9906861581012825" />
+      <entry key="S5" value="0.9962640014981925" />
+      <entry key="S10" value="0.9981302527717475" />
+      <entry key="S30" value="0.9993763623567368" />
+      <entry key="S60" value="0.9997132320459309" />
+      <entry key="M2" value="1.0128819379218523" />
+      <entry key="M5" value="1.985348725477026" />
+      <entry key="M10" value="6.860494760697846" />
+      <entry key="M15" value="13.97412069718425" />
+      <entry key="M30" value="36.34443904263664" />
+      <entry key="H1" value="67.81933509856665" />
+      <entry key="H2" value="122.41284091760589" />
+      <entry key="H4" value="267.601065183295" />
+      <entry key="D1" value="801.2426407893256" />
+      <entry key="W1" value="998.8924659442345" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -101,13 +106,13 @@
   <component name="ProjectSessionTemplates">
     <option name="panelTemplate">
       <template>
-        <option name="ensembleEnabled" value="true" />
+        <option name="ensembleEnabled" value="false" />
         <option name="ensembleTierId" value="balance" />
         <option name="modeId" value="Agent" />
         <option name="model">
           <model>
             <option name="modelType" value="builtin_id" />
-            <option name="modelValue" value="ensemble" />
+            <option name="modelValue" value="auto" />
           </model>
         </option>
         <option name="targetType" value="BACKGROUND" />
@@ -154,38 +159,6 @@
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\crops\ui" />
       <recent name="C:\Users\Admin\Documents\Repos\AGRISS\src\features\tasks\ui" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="AGRISS" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="AGRISS" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -395,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1795160601026</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Changed the Finish task Message dialog box UI">
+      <option name="closed" value="true" />
+      <created>1795490947879</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1795490947880</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -435,6 +416,7 @@
     <MESSAGE value="Added comments part 1" />
     <MESSAGE value="Added comments part 2" />
     <MESSAGE value="Added 2 new assets for the logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added 2 new assets for the logo" />
+    <MESSAGE value="Changed the Finish task Message dialog box UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the Finish task Message dialog box UI" />
   </component>
 </project>
